@@ -1,4 +1,4 @@
-﻿unit FrmSalaryCalc;
+unit FrmSalaryCalc;
 
 interface
 
@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.Objects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.ListBox, FMX.Edit,
-  FMX.Grid, FMX.Grid.Style, FMX.Effects, System.Rtti, FMX.ScrollBox;
+  FMX.Grid, FMX.Grid.Style, FMX.Effects, System.Rtti, FMX.ScrollBox,
+  Model_Employee, Model_SalaryRecord, Engine_Salary, System.Generics.Collections;
 
 type
   TSalaryCalcFrame = class(TFrame)
@@ -58,9 +59,15 @@ type
     
   public
     constructor Create(AOwner: TComponent); override;
+    destructor Destroy; override;
   private
+    FEmployees: TObjectList<TEmployee>;
+    FCalculatedRecords: TObjectList<TSalaryRecord>;
     procedure SetupTexts;
     procedure ShowStep(StepIndex: Integer);
+    procedure LoadEmployeesForAbsence;
+    procedure RunCalculation;
+    
     procedure BtnNextToStep2Click(Sender: TObject);
     procedure BtnBackToStep1Click(Sender: TObject);
     procedure BtnNextToStep3Click(Sender: TObject);
@@ -89,21 +96,7 @@ begin
   ColDept.Header := 'Département';
   ColAbsDays.Header := 'Absences (Jours)';
   
-  AbsenceGrid.RowCount := 3;
-  AbsenceGrid.Cells[0, 0] := 'EMP-001';
-  AbsenceGrid.Cells[1, 0] := 'BENDJEDDOU Yassine';
-  AbsenceGrid.Cells[2, 0] := 'Médical';
-  AbsenceGrid.Cells[3, 0] := '0';
-  
-  AbsenceGrid.Cells[0, 1] := 'EMP-002';
-  AbsenceGrid.Cells[1, 1] := 'BOUROUIS Amina';
-  AbsenceGrid.Cells[2, 1] := 'Paramédical';
-  AbsenceGrid.Cells[3, 1] := '2';
-  
-  AbsenceGrid.Cells[0, 2] := 'EMP-003';
-  AbsenceGrid.Cells[1, 2] := 'MERAH Karim';
-  AbsenceGrid.Cells[2, 2] := 'Administration';
-  AbsenceGrid.Cells[3, 2] := '0';
+  AbsenceGrid.RowCount := 0;
   
   // Wire up events dynamically
   BtnNextToStep2.OnClick := BtnNextToStep2Click;
@@ -121,6 +114,51 @@ begin
   end;
 end;
 
+destructor TSalaryCalcFrame.Destroy;
+begin
+  if Assigned(FEmployees) then FEmployees.Free;
+  if Assigned(FCalculatedRecords) then FCalculatedRecords.Free;
+  inherited;
+end;
+
+procedure TSalaryCalcFrame.LoadEmployeesForAbsence;
+var
+  i: Integer;
+begin
+  if Assigned(FEmployees) then FreeAndNil(FEmployees);
+  FEmployees := TEmployee.GetAllEmployees();
+  
+  AbsenceGrid.RowCount := FEmployees.Count;
+  for i := 0 to FEmployees.Count - 1 do
+  begin
+    AbsenceGrid.Cells[0, i] := FEmployees[i].EmployeeNumber;
+    AbsenceGrid.Cells[1, i] := FEmployees[i].FullName;
+    AbsenceGrid.Cells[2, i] := FEmployees[i].DepartmentId;
+    AbsenceGrid.Cells[3, i] := '0'; // default absent days
+  end;
+end;
+
+procedure TSalaryCalcFrame.RunCalculation;
+var
+  M, Y, AbsDays, i: Integer;
+  Rec: TSalaryRecord;
+begin
+  M := ComboMonth.ItemIndex + 1; // Jan = 1
+  Y := StrToIntDef(ComboYear.Selected.Text, 2024);
+  
+  if Assigned(FCalculatedRecords) then FreeAndNil(FCalculatedRecords);
+  FCalculatedRecords := TObjectList<TSalaryRecord>.Create(True);
+  
+  for i := 0 to FEmployees.Count - 1 do
+  begin
+    AbsDays := StrToIntDef(AbsenceGrid.Cells[3, i], 0);
+    // Calculate via Engine
+    Rec := TEngineSalary.CalculateSalary(FEmployees[i].Id, M, Y, AbsDays, 30);
+    Rec.Save; // Auto inserts or updates
+    FCalculatedRecords.Add(Rec);
+  end;
+end;
+
 procedure TSalaryCalcFrame.BtnBackToStep1Click(Sender: TObject);
 begin
   ShowStep(1);
@@ -128,11 +166,13 @@ end;
 
 procedure TSalaryCalcFrame.BtnNextToStep2Click(Sender: TObject);
 begin
+  LoadEmployeesForAbsence;
   ShowStep(2);
 end;
 
 procedure TSalaryCalcFrame.BtnNextToStep3Click(Sender: TObject);
 begin
+  RunCalculation;
   ShowStep(3);
 end;
 
@@ -143,7 +183,7 @@ end;
 
 procedure TSalaryCalcFrame.BtnFinishClick(Sender: TObject);
 begin
-  ShowMessage('Facturation Terminée ! Redirection...');
+  ShowMessage('Facturation Terminée et Sauvegardée !');
   ShowStep(1); // Reset wizard
 end;
 
