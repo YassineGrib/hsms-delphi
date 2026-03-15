@@ -1,0 +1,258 @@
+object EmployeeEditForm: TEmployeeEditForm
+  Left = 0
+  Top = 0
+  Caption = 'HSMS - Gestion Employe'
+  ClientHeight = 700
+  ClientWidth = 600
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = xFFF0F2F5
+    Fill.Kind = Solid
+    Stroke.Kind = None
+    
+    object CardRect: TRectangle
+      Align = Client
+      Margins.Left = 30.000000000000000000
+      Margins.Top = 30.000000000000000000
+      Margins.Right = 30.000000000000000000
+      Margins.Bottom = 30.000000000000000000
+      Fill.Color = xFFFFFFFF
+      Stroke.Kind = None
+      XRadius = 10.000000000000000000
+      YRadius = 10.000000000000000000
+      
+      object ShadowCard: TShadowEffect
+        Distance = 4.000000000000000000
+        Direction = 90.000000000000000000
+        Softness = 0.300000011920929000
+        Opacity = 0.150000005960464500
+      end
+      
+      object TopHeaderLayout: TLayout
+        Align = Top
+        Size.Height = 60.000000000000000000
+        
+        object LblTitle: TLabel
+          Align = Left
+          Size.Width = 300.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Font.Size = 20.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+          TextSettings.VertAlign = Center
+          StyledSettings = [Family]
+          Text = 'Editer Employe'
+        end
+        
+        object BtnClose: TButton
+          Align = Right
+          Size.Width = 40.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Text = 'X'
+          Font.Size = 16.000000000000000000
+          TextSettings.FontColor = xFF888888
+          OnClick = BtnCloseClick
+        end
+      end
+      
+      object ScrollBoxMain: TScrollBox
+        Align = Client
+        
+        object ContentLayout: TLayout
+          Align = Top
+          Size.Height = 600.000000000000000000
+          
+          object RectSection1: TRectangle
+            Align = Top
+            Size.Height = 150.000000000000000000
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Fill.Kind = None
+            Stroke.Color = xFFE4E6EF
+            Stroke.Kind = Solid
+            XRadius = 5.000000000000000000
+            YRadius = 5.000000000000000000
+            
+            object LblSection1Title: TLabel
+              Align = Top
+              Size.Height = 30.000000000000000000
+              Margins.Left = 10.000000000000000000
+              Margins.Top = 10.000000000000000000
+              Font.Size = 16.000000000000000000
+              Font.Style = [fsBold]
+              TextSettings.FontColor = xFF112240
+              StyledSettings = [Family]
+              Text = 'Informations Personnelles'
+            end
+            
+            object EditNom: TEdit
+              Position.X = 15.000000000000000000
+              Position.Y = 50.000000000000000000
+              Size.Width = 220.000000000000000000
+              Size.Height = 35.000000000000000000
+              TextPrompt = 'Nom'
+            end
+            
+            object EditPrenom: TEdit
+              Position.X = 250.000000000000000000
+              Position.Y = 50.000000000000000000
+              Size.Width = 220.000000000000000000
+              Size.Height = 35.000000000000000000
+              TextPrompt = 'Prenom'
+            end
+            
+            object EditNSS: TEdit
+              Position.X = 15.000000000000000000
+              Position.Y = 95.000000000000000000
+              Size.Width = 300.000000000000000000
+              Size.Height = 35.000000000000000000
+              TextPrompt = 'NSS (Numero de Securite Sociale)'
+            end
+          end
+          
+          object RectSection2: TRectangle
+            Align = Top
+            Size.Height = 150.000000000000000000
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 15.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Fill.Kind = None
+            Stroke.Color = xFFE4E6EF
+            Stroke.Kind = Solid
+            XRadius = 5.000000000000000000
+            YRadius = 5.000000000000000000
+            
+            object LblSection2Title: TLabel
+              Align = Top
+              Size.Height = 30.000000000000000000
+              Margins.Left = 10.000000000000000000
+              Margins.Top = 10.000000000000000000
+              Font.Size = 16.000000000000000000
+              Font.Style = [fsBold]
+              TextSettings.FontColor = xFF112240
+              StyledSettings = [Family]
+              Text = 'Donnees Professionnelles'
+            end
+            
+            object EditMatricule: TEdit
+              Position.X = 15.000000000000000000
+              Position.Y = 50.000000000000000000
+              Size.Width = 200.000000000000000000
+              Size.Height = 35.000000000000000000
+              TextPrompt = 'Matricule'
+            end
+            
+            object ComboDepartement: TComboBox
+              Position.X = 230.000000000000000000
+              Position.Y = 50.000000000000000000
+              Size.Width = 240.000000000000000000
+              Size.Height = 35.000000000000000000
+            end
+            
+            object EditFonction: TEdit
+              Position.X = 15.000000000000000000
+              Position.Y = 95.000000000000000000
+              Size.Width = 250.000000000000000000
+              Size.Height = 35.000000000000000000
+              TextPrompt = 'Fonction Occupee'
+            end
+            
+            object DateEditEmbauche: TEdit
+              Position.X = 280.000000000000000000
+              Position.Y = 95.000000000000000000
+              Size.Width = 190.000000000000000000
+              Size.Height = 35.000000000000000000
+              TextPrompt = 'Date d''embauche'
+            end
+          end
+          
+          object RectSection3: TRectangle
+            Align = Top
+            Size.Height = 150.000000000000000000
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 15.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Fill.Kind = None
+            Stroke.Color = xFFE4E6EF
+            Stroke.Kind = Solid
+            XRadius = 5.000000000000000000
+            YRadius = 5.000000000000000000
+            
+            object LblSection3Title: TLabel
+              Align = Top
+              Size.Height = 30.000000000000000000
+              Margins.Left = 10.000000000000000000
+              Margins.Top = 10.000000000000000000
+              Font.Size = 16.000000000000000000
+              Font.Style = [fsBold]
+              TextSettings.FontColor = xFF112240
+              StyledSettings = [Family]
+              Text = 'Classification & Salaire'
+            end
+            
+            object ComboClasse: TComboBox
+              Position.X = 15.000000000000000000
+              Position.Y = 50.000000000000000000
+              Size.Width = 200.000000000000000000
+              Size.Height = 35.000000000000000000
+            end
+            
+            object ComboEchelon: TComboBox
+              Position.X = 230.000000000000000000
+              Position.Y = 50.000000000000000000
+              Size.Width = 200.000000000000000000
+              Size.Height = 35.000000000000000000
+            end
+            
+            object EditIndice: TEdit
+              Position.X = 15.000000000000000000
+              Position.Y = 95.000000000000000000
+              Size.Width = 150.000000000000000000
+              Size.Height = 35.000000000000000000
+              TextPrompt = 'Indice Minimal'
+            end
+          end
+        end
+      end
+      
+      object FooterLayout: TLayout
+        Align = Bottom
+        Size.Height = 80.000000000000000000
+        
+        object BtnCancel: TButton
+          Align = Right
+          Size.Width = 120.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Margins.Right = 15.000000000000000000
+          Margins.Bottom = 20.000000000000000000
+          Text = 'Annuler'
+          Font.Size = 14.000000000000000000
+          OnClick = BtnCancelClick
+        end
+        
+        object BtnSave: TButton
+          Align = Right
+          Size.Width = 150.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Margins.Right = 20.000000000000000000
+          Margins.Bottom = 20.000000000000000000
+          Text = 'Sauvegarder'
+          Font.Size = 14.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+          OnClick = BtnSaveClick
+        end
+      end
+    end
+  end
+end

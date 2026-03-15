@@ -1,0 +1,14 @@
+object DMDatabase: TDMDatabase
+  OldCreateOrder = False
+  Height = 480
+  Width = 640
+  object FDConnection: TFDConnection
+    LoginPrompt = False
+    Left = 56
+    Top = 32
+  end
+  object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
+    Left = 160
+    Top = 32
+  end
+end

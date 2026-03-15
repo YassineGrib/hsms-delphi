@@ -1,0 +1,142 @@
+unit FrmBareme;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
+  FMX.Objects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, FMX.Grid,
+  FMX.Grid.Style, FMX.TabControl, FMX.Effects;
+
+type
+  TBaremeFrame = class(TFrame)
+    bgRect: TRectangle;
+    
+    // Header
+    TopBarLayout: TLayout;
+    TopBarRect: TRectangle;
+    ShadowTopBar: TShadowEffect;
+    LblPageTitle: TLabel;
+    LblPageDesc: TLabel;
+    
+    // Tab Control for different configuration tables
+    TabConfig: TTabControl;
+    TabPointIndiciaire: TTabItem;
+    TabIRG: TTabItem;
+    TabRubriques: TTabItem;
+    
+    // --- Point Indiciaire Tab Content ---
+    PanelPointInd: TLayout;
+    TopPointInd: TLayout;
+    LblCurrentPoint: TLabel;
+    BtnEditPoint: TButton;
+    
+    GridClasses: TStringGrid;
+    ColClasse: TStringColumn;
+    ColDesignation: TStringColumn;
+    ColIndiceMin: TStringColumn;
+    
+    // --- IRG Tab Content ---
+    PanelIRG: TLayout;
+    GridIRG: TStringGrid;
+    ColTrancheIRG: TStringColumn;
+    ColMinIRG: TStringColumn;
+    ColMaxIRG: TStringColumn;
+    ColTauxIRG: TStringColumn;
+    ColAbattementIRG: TStringColumn;
+    
+    // --- Rubriques Tab Content ---
+    PanelRubriques: TLayout;
+    TopRubriques: TLayout;
+    BtnAddRubrique: TButton;
+    
+    GridRubriques: TStringGrid;
+    ColRubCode: TStringColumn;
+    ColRubLibelle: TStringColumn;
+    ColRubType: TStringColumn;
+    ColRubTaux: TStringColumn;
+    ColRubCotisable: TCheckColumn;
+    ColRubImposable: TCheckColumn;
+    
+  public
+    constructor Create(AOwner: TComponent); override;
+  private
+    procedure SetupTexts;
+    procedure PopulateDummyData;
+  end;
+
+var
+  BaremeFrame: TBaremeFrame;
+
+implementation
+
+{$R *.fmx}
+
+constructor TBaremeFrame.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  SetupTexts;
+  PopulateDummyData;
+end;
+
+procedure TBaremeFrame.SetupTexts;
+begin
+  LblPageTitle.Text := 'Baremes et Configurations';
+  LblPageDesc.Text := 'Gestion des grilles salariales, du bareme IRG et des rubriques de paie.';
+  
+  TabPointIndiciaire.Text := 'Grille Indiciaire';
+  TabIRG.Text := 'Bareme I.R.G';
+  TabRubriques.Text := 'Rubriques (Gains/Retenues)';
+  
+  LblCurrentPoint.Text := 'Valeur Actuelle du Point Indiciaire : 45.00 DZD';
+  BtnEditPoint.Text := 'Modifier Valeur du Point';
+  
+  BtnAddRubrique.Text := '+ Nouvelle Rubrique';
+  
+  // Setup Grids Headers
+  ColClasse.Header := 'Classe / Catégorie';
+  ColDesignation.Header := 'Désignation';
+  ColIndiceMin.Header := 'Indice Minimal';
+  
+  ColTrancheIRG.Header := 'Tranche';
+  ColMinIRG.Header := 'De (DZD)';
+  ColMaxIRG.Header := 'A (DZD)';
+  ColTauxIRG.Header := 'Taux (%)';
+  ColAbattementIRG.Header := 'Abattement';
+  
+  ColRubCode.Header := 'Code';
+  ColRubLibelle.Header := 'Libellé';
+  ColRubType.Header := 'Type';
+  ColRubTaux.Header := 'Taux Fixe (%)';
+  ColRubCotisable.Header := 'Soumis SS';
+  ColRubImposable.Header := 'Soumis IRG';
+end;
+
+procedure TBaremeFrame.PopulateDummyData;
+begin
+  // Dummy Classes
+  GridClasses.RowCount := 4;
+  GridClasses.Cells[0, 0] := 'Classe 10'; GridClasses.Cells[1, 0] := 'Personnel Administratif'; GridClasses.Cells[2, 0] := '348';
+  GridClasses.Cells[0, 1] := 'Classe 11'; GridClasses.Cells[1, 1] := 'Paramédical Diplômé d''Etat'; GridClasses.Cells[2, 1] := '398';
+  GridClasses.Cells[0, 2] := 'Classe 12'; GridClasses.Cells[1, 2] := 'Cadre Administratif'; GridClasses.Cells[2, 2] := '453';
+  GridClasses.Cells[0, 3] := 'Classe 16'; GridClasses.Cells[1, 3] := 'Médecin Spécialiste'; GridClasses.Cells[2, 3] := '714';
+  
+  // Dummy IRG (Algerian Bareme IRG Example)
+  GridIRG.RowCount := 4;
+  GridIRG.Cells[0, 0] := 'Tranche 1'; GridIRG.Cells[1, 0] := '0.00'; GridIRG.Cells[2, 0] := '30 000.00'; GridIRG.Cells[3, 0] := '0 %'; GridIRG.Cells[4, 0] := 'Exonéré';
+  GridIRG.Cells[0, 1] := 'Tranche 2'; GridIRG.Cells[1, 1] := '30 001.00'; GridIRG.Cells[2, 1] := '35 000.00'; GridIRG.Cells[3, 1] := '20 %'; GridIRG.Cells[4, 0] := 'Abattement progressif';
+  GridIRG.Cells[0, 2] := 'Tranche 3'; GridIRG.Cells[1, 2] := '35 001.00'; GridIRG.Cells[2, 2] := '120 000.00'; GridIRG.Cells[3, 2] := '30 %'; GridIRG.Cells[4, 0] := 'Abattement fixe';
+  GridIRG.Cells[0, 3] := 'Tranche 4'; GridIRG.Cells[1, 3] := '120 001.00'; GridIRG.Cells[2, 3] := 'Et plus'; GridIRG.Cells[3, 3] := '35 %'; GridIRG.Cells[4, 0] := 'Aucun';
+  
+  // Dummy Rubriques
+  GridRubriques.RowCount := 4;
+  GridRubriques.Cells[0, 0] := '101'; GridRubriques.Cells[1, 0] := 'Salaire de Base'; GridRubriques.Cells[2, 0] := 'Gain'; GridRubriques.Cells[3, 0] := '-';
+  // Note: For checkboxes in TCheckColumn, we'd typically manage values via OnGetValue or bind it, 
+  // but for FMX stringgrid cells we leave it empty for dummy representation in UI step.
+  
+  GridRubriques.Cells[0, 1] := '102'; GridRubriques.Cells[1, 1] := 'Indemnité Expérience Prof. (IEP)'; GridRubriques.Cells[2, 1] := 'Gain'; GridRubriques.Cells[3, 1] := '5%';
+  GridRubriques.Cells[0, 2] := '801'; GridRubriques.Cells[1, 2] := 'Retenue S.S'; GridRubriques.Cells[2, 2] := 'Retenue'; GridRubriques.Cells[3, 2] := '9%';
+  GridRubriques.Cells[0, 3] := '802'; GridRubriques.Cells[1, 3] := 'Retenue I.R.G'; GridRubriques.Cells[2, 3] := 'Retenue'; GridRubriques.Cells[3, 3] := 'Barème';
+end;
+
+end.

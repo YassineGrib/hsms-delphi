@@ -1,0 +1,151 @@
+object LoginForm: TLoginForm
+  Left = 0
+  Top = 0
+  Caption = 'HSMS - Connexion'
+  ClientHeight = 600
+  ClientWidth = 800
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  OnClose = FormClose
+  DesignerMasterStyle = 0
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = xFF0A192F
+    Fill.Kind = Solid
+    Stroke.Kind = None
+    object CardRect: TRectangle
+      Align = Center
+      Size.Width = 400.000000000000000000
+      Size.Height = 450.000000000000000000
+      Fill.Color = xFFFFFFFF
+      Fill.Kind = Solid
+      Stroke.Kind = None
+      XRadius = 12.000000000000000000
+      YRadius = 12.000000000000000000
+      Opacity = 0.000000000000000000
+      object FloatAnimationEntrance: TFloatAnimation
+        Duration = 0.600000000000000000
+        PropertyName = 'Opacity'
+        StartValue = 0.000000000000000000
+        StopValue = 1.000000000000000000
+      end
+      object FloatAnimationShake: TFloatAnimation
+        Duration = 0.100000000000000000
+        PropertyName = 'Position.X'
+        StartValue = 200.000000000000000000
+        StopValue = 210.000000000000000000
+        AutoReverse = True
+        Loop = False
+      end
+      object ShadowEffect1: TShadowEffect
+        Distance = 5.000000000000000000
+        Direction = 90.000000000000000000
+        Softness = 0.500000000000000000
+        Opacity = 0.200000000000000000
+      end
+      object HeaderRect: TRectangle
+        Align = Top
+        Size.Width = 400.000000000000000000
+        Size.Height = 120.000000000000000000
+        Fill.Color = xFF112240
+        Stroke.Kind = None
+        Corners = [TopLeft, TopRight]
+        XRadius = 12.000000000000000000
+        YRadius = 12.000000000000000000
+        object LabelIcon: TLabel
+          Align = Center
+          Font.Size = 40.000000000000000000
+          TextSettings.FontColor = xFFFFFFFF
+          TextSettings.HorzAlign = Center
+          StyledSettings = [Family, Style]
+          Text = '+'
+        end
+        object LabelTitle: TLabel
+          Size.Width = 400.000000000000000000
+          Size.Height = 30.000000000000000000
+          Position.Y = 80.000000000000000000
+          Font.Size = 20.000000000000000000
+          TextSettings.FontColor = xFFFFFFFF
+          Font.Style = [fsBold]
+          TextSettings.HorzAlign = Center
+          StyledSettings = [Family]
+          Text = 'HSMS'
+        end
+      end
+      object LabelSubtitle: TLabel
+        Position.X = 40.000000000000000000
+        Position.Y = 140.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 25.000000000000000000
+        Font.Size = 16.000000000000000000
+        TextSettings.FontColor = xFF333333
+        TextSettings.HorzAlign = Center
+        StyledSettings = [Family, Style]
+        Text = 'Veuillez vous connecter'
+      end
+      object EditUser: TEdit
+        Position.X = 40.000000000000000000
+        Position.Y = 190.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 45.000000000000000000
+        TextPrompt = 'Nom d''utilisateur'
+        Font.Size = 14.000000000000000000
+      end
+      object EditPass: TEdit
+        Position.X = 40.000000000000000000
+        Position.Y = 250.000000000000000000
+        Size.Width = 270.000000000000000000
+        Size.Height = 45.000000000000000000
+        TextPrompt = 'Mot de passe'
+        Password = True
+        Font.Size = 14.000000000000000000
+      end
+      object BtnTogglePass: TButton
+        Position.X = 320.000000000000000000
+        Position.Y = 250.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 45.000000000000000000
+        Text = 'O'
+        Font.Size = 16.000000000000000000
+        OnClick = BtnTogglePassClick
+      end
+      object LabelError: TLabel
+        Position.X = 20.000000000000000000
+        Position.Y = 300.000000000000000000
+        Size.Width = 360.000000000000000000
+        Size.Height = 25.000000000000000000
+        Font.Size = 12.000000000000000000
+        TextSettings.FontColor = xFFD32F2F
+        TextSettings.HorzAlign = Center
+        StyledSettings = [Family, Style]
+        Text = 'Erreur: Identifiants incorrects'
+        Visible = False
+      end
+      object BtnLogin: TButton
+        Position.X = 40.000000000000000000
+        Position.Y = 330.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 50.000000000000000000
+        Text = 'Se connecter'
+        Font.Size = 16.000000000000000000
+        Font.Style = [fsBold]
+        Default = True
+        OnClick = BtnLoginClick
+      end
+      object LabelAttempts: TLabel
+        Position.X = 40.000000000000000000
+        Position.Y = 400.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 25.000000000000000000
+        Font.Size = 12.000000000000000000
+        TextSettings.FontColor = xFF888888
+        TextSettings.HorzAlign = Center
+        StyledSettings = [Family, Style]
+        Text = 'Tentatives restantes: 5'
+      end
+    end
+  end
+end

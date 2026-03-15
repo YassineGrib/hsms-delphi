@@ -1,0 +1,267 @@
+object PaySlipFrame: TPaySlipFrame
+  Size.Width = 900.000000000000000000
+  Size.Height = 700.000000000000000000
+  Size.PlatformDefault = False
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = xFFF0F2F5
+    Size.Width = 900.000000000000000000
+    Size.Height = 700.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object TopActionsLayout: TLayout
+      Align = Top
+      Size.Width = 900.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      object BtnExportPDF: TButton
+        Align = Right
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 20.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 520.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 150.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Exporter PDF'
+        TextSettings.Font.Size = 14.000000000000000000
+      end
+      object BtnPrint: TButton
+        Align = Right
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 690.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 200.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Imprimer'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = xFF112240
+      end
+    end
+    object ScrollBoxMain: TScrollBox
+      Align = Client
+      Size.Width = 900.000000000000000000
+      Size.Height = 640.000000000000000000
+      Size.PlatformDefault = False
+      Viewport.Width = 884.000000000000000000
+      Viewport.Height = 640.000000000000000000
+      object PaperRect: TRectangle
+        Align = Top
+        Fill.Color = claWhite
+        Margins.Left = 30.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 30.000000000000000000
+        Margins.Bottom = 20.000000000000000000
+        Position.X = 30.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 824.000000000000000000
+        Size.Height = 1050.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFDDDDDD
+        XRadius = 2.000000000000000000
+        YRadius = 2.000000000000000000
+        object ShadowPaper: TShadowEffect
+          Distance = 5.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.400000005960464500
+          Opacity = 0.150000005960464500
+          ShadowColor = claBlack
+        end
+        object HeaderLayout: TLayout
+          Align = Top
+          Margins.Left = 40.000000000000000000
+          Margins.Top = 40.000000000000000000
+          Margins.Right = 40.000000000000000000
+          Position.X = 40.000000000000000000
+          Position.Y = 40.000000000000000000
+          Size.Width = 744.000000000000000000
+          Size.Height = 100.000000000000000000
+          Size.PlatformDefault = False
+          object LblHospitalName: TLabel
+            Align = Left
+            Size.Width = 300.000000000000000000
+            Size.Height = 100.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF333333
+            TextSettings.VertAlign = Leading
+            Text = 'HOPITAL CENTRAL'
+          end
+          object LblPaySlipTitle: TLabel
+            Align = Client
+            Size.Width = 244.000000000000000000
+            Size.Height = 100.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 24.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF112240
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Leading
+            Text = 'BULLETIN DE PAIE'
+          end
+          object LblDateParams: TLabel
+            Align = Right
+            Position.X = 544.000000000000000000
+            Size.Width = 200.000000000000000000
+            Size.Height = 100.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.FontColor = xFF555555
+            TextSettings.HorzAlign = Trailing
+            TextSettings.VertAlign = Leading
+            Text = 'Periode: Mars 2024'
+          end
+        end
+        object EmpInfoLayout: TLayout
+          Align = Top
+          Margins.Left = 40.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 40.000000000000000000
+          Position.X = 40.000000000000000000
+          Position.Y = 150.000000000000000000
+          Size.Width = 744.000000000000000000
+          Size.Height = 120.000000000000000000
+          Size.PlatformDefault = False
+          object RectEmpInfoBox: TRectangle
+            Align = Client
+            Fill.Kind = None
+            Size.Width = 744.000000000000000000
+            Size.Height = 120.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = xFF555555
+            XRadius = 4.000000000000000000
+            YRadius = 4.000000000000000000
+            object LblEmpNameInfo: TLabel
+              Position.X = 15.000000000000000000
+              Position.Y = 15.000000000000000000
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xFF333333
+              Text = 'Nom & Prenom :'
+            end
+            object LblEmpMatricule: TLabel
+              Position.X = 15.000000000000000000
+              Position.Y = 45.000000000000000000
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.FontColor = xFF555555
+              Text = 'Matricule :'
+            end
+            object LblEmpFunction: TLabel
+              Position.X = 15.000000000000000000
+              Position.Y = 75.000000000000000000
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.FontColor = xFF555555
+              Text = 'Fonction :'
+            end
+            object LblEmpSS: TLabel
+              Position.X = 400.000000000000000000
+              Position.Y = 45.000000000000000000
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.FontColor = xFF555555
+              Text = 'NSS :'
+            end
+          end
+        end
+        object GridContainer: TLayout
+          Align = Top
+          Margins.Left = 40.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Margins.Right = 40.000000000000000000
+          Position.X = 40.000000000000000000
+          Position.Y = 290.000000000000000000
+          Size.Width = 744.000000000000000000
+          Size.Height = 400.000000000000000000
+          Size.PlatformDefault = False
+          object GridPay: TStringGrid
+            Align = Client
+            CanFocus = True
+            ClipChildren = True
+            Size.Width = 744.000000000000000000
+            Size.Height = 400.000000000000000000
+            Size.PlatformDefault = False
+            RowCount = 5
+            Options = [ColumnResize, ColLines, RowLines, Tabs, Header]
+            Viewport.Width = 744.000000000000000000
+            Viewport.Height = 400.000000000000000000
+            object ColCode: TStringColumn
+              Header = 'Code'
+              Size.Width = 60.000000000000000000
+            end
+            object ColLibelle: TStringColumn
+              Header = 'Designation'
+              Size.Width = 250.000000000000000000
+            end
+            object ColBase: TStringColumn
+              Header = 'Base'
+            end
+            object ColTaux: TStringColumn
+              Header = 'Taux/Nbr'
+              Size.Width = 80.000000000000000000
+            end
+            object ColGain: TStringColumn
+              Header = 'Gains'
+              Size.Width = 110.000000000000000000
+            end
+            object ColRetenue: TStringColumn
+              Header = 'Retenues'
+              Size.Width = 110.000000000000000000
+            end
+          end
+        end
+        object FooterLayout: TLayout
+          Align = Bottom
+          Margins.Left = 40.000000000000000000
+          Margins.Right = 40.000000000000000000
+          Margins.Bottom = 40.000000000000000000
+          Position.X = 40.000000000000000000
+          Position.Y = 860.000000000000000000
+          Size.Width = 744.000000000000000000
+          Size.Height = 150.000000000000000000
+          Size.PlatformDefault = False
+          object RectNetToPayBox: TRectangle
+            Align = Right
+            Fill.Color = xFFF0F2F5
+            Position.X = 394.000000000000000000
+            Size.Width = 350.000000000000000000
+            Size.Height = 150.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = xFF112240
+            Stroke.Thickness = 2.000000000000000000
+            object LblNetTitle: TLabel
+              Position.X = 20.000000000000000000
+              Position.Y = 20.000000000000000000
+              TextSettings.Font.Size = 20.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xFF333333
+              Text = 'Net a Payer'
+            end
+            object LblNetValue: TLabel
+              Position.X = 20.000000000000000000
+              Position.Y = 60.000000000000000000
+              TextSettings.Font.Size = 34.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xFF112240
+              Text = '0.00 DZD'
+            end
+          end
+          object LblNetWords: TLabel
+            Align = Client
+            Margins.Right = 20.000000000000000000
+            Size.Width = 374.000000000000000000
+            Size.Height = 150.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.FontColor = xFF555555
+            Text = 'Arrete le present...'
+          end
+        end
+      end
+    end
+  end
+end

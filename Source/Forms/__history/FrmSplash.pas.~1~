@@ -1,0 +1,58 @@
+unit FrmSplash;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Objects, FMX.Effects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Ani;
+
+type
+  TSplashForm = class(TForm)
+    bgRect: TRectangle;
+    FloatAnimation1: TFloatAnimation;
+    LabelTitle: TLabel;
+    LabelSubtitle: TLabel;
+    ShadowEffect1: TShadowEffect;
+    Timer1: TTimer;
+    LoadCircle: TArc;
+    FloatAnimationSpin: TFloatAnimation;
+    LabelLoading: TLabel;
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  SplashForm: TSplashForm;
+
+implementation
+
+uses
+  FrmLogin;
+
+{$R *.fmx}
+
+procedure TSplashForm.FormCreate(Sender: TObject);
+begin
+  // Start animations
+  FloatAnimation1.Start;
+  FloatAnimationSpin.Start;
+end;
+
+procedure TSplashForm.Timer1Timer(Sender: TObject);
+begin
+  Timer1.Enabled := False;
+  // Make sure LoginForm is created if not already
+  if not Assigned(LoginForm) then
+    Application.CreateForm(TLoginForm, LoginForm);
+  LoginForm.Show;
+  
+  // Hide splash screen
+  Self.Hide;
+end;
+
+end.

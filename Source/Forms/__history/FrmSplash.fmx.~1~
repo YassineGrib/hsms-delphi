@@ -1,0 +1,83 @@
+object SplashForm: TSplashForm
+  Left = 0
+  Top = 0
+  BorderStyle = None
+  Caption = 'HSMS Splash'
+  ClientHeight = 480
+  ClientWidth = 640
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = xFF0A192F
+    Fill.Kind = Solid
+    Stroke.Kind = None
+    object LabelTitle: TLabel
+      Align = Center
+      Font.Size = 48.000000000000000000
+      Font.Style = [fsBold]
+      TextSettings.FontColor = xFFFFFFFF
+      TextSettings.HorzAlign = Center
+      StyledSettings = [Family]
+      Text = 'HSMS'
+      object ShadowEffect1: TShadowEffect
+        Distance = 3.000000000000000000
+        Direction = 45.000000000000000000
+        Softness = 0.300000011920928900
+        Opacity = 0.600000023841857900
+      end
+      object FloatAnimation1: TFloatAnimation
+        Duration = 1.500000000000000000
+        PropertyName = 'Opacity'
+        StartValue = 0.000000000000000000
+        StopValue = 1.000000000000000000
+      end
+    end
+    object LabelSubtitle: TLabel
+      Position.X = 0.000000000000000000
+      Position.Y = 280.000000000000000000
+      Size.Width = 640.000000000000000000
+      Size.Height = 50.000000000000000000
+      Font.Size = 20.000000000000000000
+      TextSettings.FontColor = xFFA8B2D1
+      TextSettings.HorzAlign = Center
+      StyledSettings = [Family, Style]
+      Text = 'Hospital Salary Management System'
+    end
+    object LoadCircle: TArc
+      Position.X = 296.000000000000000000
+      Position.Y = 350.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      EndAngle = 270.000000000000000000
+      Stroke.Color = xFF64FFDA
+      Stroke.Thickness = 4.000000000000000000
+      object FloatAnimationSpin: TFloatAnimation
+        Duration = 1.000000000000000000
+        Loop = True
+        PropertyName = 'RotationAngle'
+        StartValue = 0.000000000000000000
+        StopValue = 360.000000000000000000
+      end
+    end
+    object LabelLoading: TLabel
+      Position.X = 0.000000000000000000
+      Position.Y = 410.000000000000000000
+      Size.Width = 640.000000000000000000
+      Size.Height = 30.000000000000000000
+      Font.Size = 14.000000000000000000
+      TextSettings.FontColor = xFF8892B0
+      TextSettings.HorzAlign = Center
+      StyledSettings = [Family, Style]
+      Text = 'Chargement...'
+    end
+  end
+  object Timer1: TTimer
+    Interval = 3000
+    OnTimer = Timer1Timer
+  end
+end

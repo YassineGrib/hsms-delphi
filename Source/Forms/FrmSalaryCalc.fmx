@@ -1,0 +1,325 @@
+object SalaryCalcFrame: TSalaryCalcFrame
+  Size.Width = 900.000000000000000000
+  Size.Height = 648.000000000000000000
+  Size.PlatformDefault = False
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = x00FFFFFF
+    Size.Width = 900.000000000000000000
+    Size.Height = 648.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object TopBarLayout: TLayout
+      Align = Top
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Position.X = 20.000000000000000000
+      Position.Y = 20.000000000000000000
+      Size.Width = 860.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      object TopBarRect: TRectangle
+        Align = Client
+        Fill.Color = claWhite
+        Size.Width = 860.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object ShadowTopBar: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
+        object LblPageTitle: TLabel
+          Align = Left
+          StyledSettings = [Family]
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Size.Width = 350.000000000000000000
+          Size.Height = 80.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = xFF112240
+          Text = 'Calcul des Salaires'
+        end
+      end
+    end
+    object StepsContainer: TLayout
+      Align = Top
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Position.X = 20.000000000000000000
+      Position.Y = 120.000000000000000000
+      Size.Width = 860.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      object LblStep1: TLabel
+        Align = Left
+        StyledSettings = [Family, Style, FontColor]
+        Size.Width = 150.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.FontColor = xFF112240
+        TextSettings.HorzAlign = Center
+        Text = '1. Selection Mois'
+      end
+      object LineStep1: TLine
+        Align = Left
+        LineType = Top
+        Margins.Top = 28.000000000000000000
+        Position.X = 150.000000000000000000
+        Position.Y = 28.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFA8B2D1
+        Stroke.Thickness = 2.000000000000000000
+      end
+      object LblStep2: TLabel
+        Align = Left
+        StyledSettings = [Family, Style, FontColor]
+        Position.X = 190.000000000000000000
+        Size.Width = 150.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.FontColor = xFFA8B2D1
+        TextSettings.HorzAlign = Center
+        Text = '2. Saisie Absences'
+      end
+      object LineStep2: TLine
+        Align = Left
+        LineType = Top
+        Margins.Top = 28.000000000000000000
+        Position.X = 340.000000000000000000
+        Position.Y = 28.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFA8B2D1
+        Stroke.Thickness = 2.000000000000000000
+      end
+      object LblStep3: TLabel
+        Align = Left
+        StyledSettings = [Family, Style, FontColor]
+        Position.X = 380.000000000000000000
+        Size.Width = 150.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.FontColor = xFFA8B2D1
+        TextSettings.HorzAlign = Center
+        Text = '3. Previsualisation'
+      end
+      object LineStep3: TLine
+        Align = Left
+        LineType = Top
+        Margins.Top = 28.000000000000000000
+        Position.X = 530.000000000000000000
+        Position.Y = 28.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFA8B2D1
+        Stroke.Thickness = 2.000000000000000000
+      end
+      object LblStep4: TLabel
+        Align = Left
+        StyledSettings = [Family, Style, FontColor]
+        Position.X = 570.000000000000000000
+        Size.Width = 150.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.FontColor = xFFA8B2D1
+        TextSettings.HorzAlign = Center
+        Text = '4. Validation'
+      end
+    end
+    object MainContentRect: TRectangle
+      Align = Client
+      Fill.Color = claWhite
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Size.Width = 860.000000000000000000
+      Size.Height = 438.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 8.000000000000000000
+      YRadius = 8.000000000000000000
+      object ShadowMainContent: TShadowEffect
+        Distance = 2.000000000000000000
+        Direction = 90.000000000000000000
+        Softness = 0.200000002980232200
+        Opacity = 0.100000001490116100
+        ShadowColor = claBlack
+      end
+      object Step1Layout: TLayout
+        Align = Client
+        Margins.Left = 40.000000000000000000
+        Margins.Top = 40.000000000000000000
+        Margins.Right = 40.000000000000000000
+        Margins.Bottom = 40.000000000000000000
+        Size.Width = 780.000000000000000000
+        Size.Height = 358.000000000000000000
+        Size.PlatformDefault = False
+        object LblSelectMonth: TLabel
+          Align = Top
+          StyledSettings = [Family]
+          Size.Width = 780.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = xFF112240
+          Text = 'Selectionner la periode de paie'
+        end
+        object ComboMonth: TComboBox
+          Position.Y = 50.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object ComboYear: TComboBox
+          Position.X = 220.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 100.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object BtnNextToStep2: TButton
+          Position.Y = 120.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 45.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Suivant (Absences) >'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = xFF112240
+        end
+      end
+      object Step2Layout: TLayout
+        Align = Client
+        Margins.Left = 20.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 20.000000000000000000
+        Margins.Bottom = 20.000000000000000000
+        Visible = False
+        object LblAbsenceTitle: TLabel
+          Align = Top
+          StyledSettings = [Family]
+          Size.Width = 50.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = xFF112240
+          Text = 'Saisie des absences'
+        end
+        object AbsenceGrid: TStringGrid
+          Align = Client
+          CanFocus = True
+          ClipChildren = True
+          Margins.Top = 10.000000000000000000
+          Margins.Bottom = 60.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 0.000000000000000000
+          Size.PlatformDefault = False
+          RowCount = 3
+          Options = [Editing, ColumnResize, ColLines, RowLines, Tabs, Header, HeaderClick]
+          Viewport.Width = 50.000000000000000000
+          Viewport.Height = 0.000000000000000000
+          object ColID: TStringColumn
+            Header = 'Matricule'
+            ReadOnly = True
+          end
+          object ColName: TStringColumn
+            Header = 'Nom & Prenom'
+            ReadOnly = True
+            Size.Width = 200.000000000000000000
+          end
+          object ColDept: TStringColumn
+            Header = 'Departement'
+            ReadOnly = True
+            Size.Width = 150.000000000000000000
+          end
+          object ColAbsDays: TIntegerColumn
+            Header = 'Absences (Jours)'
+            Size.Width = 150.000000000000000000
+          end
+        end
+        object BtnBackToStep1: TButton
+          Align = Bottom
+          Margins.Right = 680.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 0.000000000000000000
+          Size.Height = 45.000000000000000000
+          Size.PlatformDefault = False
+          Text = '< Retour'
+          TextSettings.Font.Size = 14.000000000000000000
+        end
+        object BtnNextToStep3: TButton
+          Position.X = 600.000000000000000000
+          Position.Y = 325.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 45.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Suivant (Calcul) >'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = xFF112240
+        end
+      end
+      object Step3Layout: TLayout
+        Align = Client
+        Visible = False
+        object Step3TopBar: TLayout
+          Align = Top
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 10.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          object BtnBackToStep2: TButton
+            Align = Left
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 120.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            Text = '< Retour'
+            TextSettings.Font.Size = 14.000000000000000000
+          end
+          object BtnFinish: TButton
+            Align = Right
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = -240.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 250.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Valider et Cloturer'
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF112240
+          end
+        end
+      end
+    end
+  end
+end

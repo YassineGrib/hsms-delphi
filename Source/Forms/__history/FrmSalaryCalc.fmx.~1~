@@ -1,0 +1,288 @@
+object SalaryCalcFrame: TSalaryCalcFrame
+  Size.Width = 900.000000000000000000
+  Size.Height = 650.000000000000000000
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = x00FFFFFF
+    Fill.Kind = Solid
+    Stroke.Kind = None
+    
+    object TopBarLayout: TLayout
+      Align = Top
+      Size.Height = 80.000000000000000000
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      
+      object TopBarRect: TRectangle
+        Align = Client
+        Fill.Color = xFFFFFFFF
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        
+        object ShadowTopBar: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000000000000000
+          Opacity = 0.100000000000000000
+        end
+        
+        object LblPageTitle: TLabel
+          Align = Left
+          Size.Width = 350.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Font.Size = 18.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+          TextSettings.VertAlign = Center
+          StyledSettings = [Family]
+          Text = 'Calcul des Salaires'
+        end
+      end
+    end
+    
+    object StepsContainer: TLayout
+      Align = Top
+      Size.Height = 60.000000000000000000
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      
+      object LblStep1: TLabel
+        Align = Left
+        Size.Width = 150.000000000000000000
+        Font.Size = 14.000000000000000000
+        TextSettings.FontColor = xFF112240
+        TextSettings.HorzAlign = Center
+        StyledSettings = [Family, Style, FontColor]
+        Text = '1. Selection Mois'
+      end
+      
+      object LineStep1: TLine
+        Align = Left
+        Size.Width = 40.000000000000000000
+        LineType = Top
+        Margins.Top = 28.000000000000000000
+        Stroke.Color = xFFA8B2D1
+        Stroke.Thickness = 2.000000000000000000
+      end
+      
+      object LblStep2: TLabel
+        Align = Left
+        Size.Width = 150.000000000000000000
+        Font.Size = 14.000000000000000000
+        TextSettings.FontColor = xFFA8B2D1
+        TextSettings.HorzAlign = Center
+        StyledSettings = [Family, Style, FontColor]
+        Text = '2. Saisie Absences'
+      end
+      
+      object LineStep2: TLine
+        Align = Left
+        Size.Width = 40.000000000000000000
+        LineType = Top
+        Margins.Top = 28.000000000000000000
+        Stroke.Color = xFFA8B2D1
+        Stroke.Thickness = 2.000000000000000000
+      end
+      
+      object LblStep3: TLabel
+        Align = Left
+        Size.Width = 150.000000000000000000
+        Font.Size = 14.000000000000000000
+        TextSettings.FontColor = xFFA8B2D1
+        TextSettings.HorzAlign = Center
+        StyledSettings = [Family, Style, FontColor]
+        Text = '3. Previsualisation'
+      end
+      
+      object LineStep3: TLine
+        Align = Left
+        Size.Width = 40.000000000000000000
+        LineType = Top
+        Margins.Top = 28.000000000000000000
+        Stroke.Color = xFFA8B2D1
+        Stroke.Thickness = 2.000000000000000000
+      end
+      
+      object LblStep4: TLabel
+        Align = Left
+        Size.Width = 150.000000000000000000
+        Font.Size = 14.000000000000000000
+        TextSettings.FontColor = xFFA8B2D1
+        TextSettings.HorzAlign = Center
+        StyledSettings = [Family, Style, FontColor]
+        Text = '4. Validation'
+      end
+    end
+    
+    object MainContentRect: TRectangle
+      Align = Client
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Fill.Color = xFFFFFFFF
+      Stroke.Kind = None
+      XRadius = 8.000000000000000000
+      YRadius = 8.000000000000000000
+      
+      object ShadowMainContent: TShadowEffect
+        Distance = 2.000000000000000000
+        Direction = 90.000000000000000000
+        Softness = 0.200000000000000000
+        Opacity = 0.100000000000000000
+      end
+      
+      object Step1Layout: TLayout
+        Align = Client
+        Margins.Left = 40.000000000000000000
+        Margins.Top = 40.000000000000000000
+        Margins.Right = 40.000000000000000000
+        Margins.Bottom = 40.000000000000000000
+        
+        object LblSelectMonth: TLabel
+          Align = Top
+          Size.Height = 30.000000000000000000
+          Font.Size = 16.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+          StyledSettings = [Family]
+          Text = 'Selectionner la periode de paie'
+        end
+        
+        object ComboMonth: TComboBox
+          Position.X = 0.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 40.000000000000000000
+        end
+        
+        object ComboYear: TComboBox
+          Position.X = 220.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 100.000000000000000000
+          Size.Height = 40.000000000000000000
+        end
+        
+        object BtnNextToStep2: TButton
+          Position.X = 0.000000000000000000
+          Position.Y = 120.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 45.000000000000000000
+          Text = 'Suivant (Absences) >'
+          Font.Size = 14.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+        end
+      end
+      
+      object Step2Layout: TLayout
+        Align = Client
+        Margins.Left = 20.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 20.000000000000000000
+        Margins.Bottom = 20.000000000000000000
+        Visible = False
+        
+        object LblAbsenceTitle: TLabel
+          Align = Top
+          Size.Height = 30.000000000000000000
+          Font.Size = 16.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+          StyledSettings = [Family]
+          Text = 'Saisie des absences'
+        end
+        
+        object AbsenceGrid: TStringGrid
+          Align = Client
+          Margins.Top = 10.000000000000000000
+          Margins.Bottom = 60.000000000000000000
+          CanFocus = True
+          ClipChildren = True
+          Size.Width = 800.000000000000000000
+          Size.Height = 250.000000000000000000
+          RowCount = 3
+          Options = [Editing, ColumnResize, ColLines, RowLines, Tabs, Header, HeaderClick]
+          Viewport.Width = 800.000000000000000000
+          Viewport.Height = 225.000000000000000000
+          
+          object ColID: TStringColumn
+            Header = 'Matricule'
+            Width = 100.000000000000000000
+            ReadOnly = True
+          end
+          object ColName: TStringColumn
+            Header = 'Nom & Prenom'
+            Width = 200.000000000000000000
+            ReadOnly = True
+          end
+          object ColDept: TStringColumn
+            Header = 'Departement'
+            Width = 150.000000000000000000
+            ReadOnly = True
+          end
+          object ColAbsDays: TIntegerColumn
+            Header = 'Absences (Jours)'
+            Width = 150.000000000000000000
+          end
+        end
+        
+        object BtnBackToStep1: TButton
+          Align = Bottom
+          Size.Width = 120.000000000000000000
+          Size.Height = 45.000000000000000000
+          Margins.Right = 680.000000000000000000
+          Text = '< Retour'
+          Font.Size = 14.000000000000000000
+        end
+        
+        object BtnNextToStep3: TButton
+          Position.X = 600.000000000000000000
+          Position.Y = 325.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 45.000000000000000000
+          Text = 'Suivant (Calcul) >'
+          Font.Size = 14.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+        end
+      end
+      
+      object Step3Layout: TLayout
+        Align = Client
+        Visible = False
+        
+        object Step3TopBar: TLayout
+          Align = Top
+          Size.Height = 60.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 20.000000000000000000
+          
+          object BtnBackToStep2: TButton
+            Align = Left
+            Size.Width = 120.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Text = '< Retour'
+            Font.Size = 14.000000000000000000
+          end
+          
+          object BtnFinish: TButton
+            Align = Right
+            Size.Width = 250.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Text = 'Valider et Cloturer'
+            Font.Size = 14.000000000000000000
+            Font.Style = [fsBold]
+            TextSettings.FontColor = xFF112240
+          end
+        end
+      end
+    end
+  end
+end

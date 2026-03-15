@@ -1,0 +1,139 @@
+unit FrmPaySlip;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
+  FMX.Objects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Grid, FMX.Grid.Style,
+  FMX.Effects;
+
+type
+  TPaySlipFrame = class(TFrame)
+    bgRect: TRectangle;
+    
+    // Top actions
+    TopActionsLayout: TLayout;
+    BtnPrint: TButton;
+    BtnExportPDF: TButton;
+    
+    // Scrollable area for A4 paper
+    ScrollBoxMain: TScrollBox;
+    
+    // A4 Paper Background
+    PaperRect: TRectangle;
+    ShadowPaper: TShadowEffect;
+    
+    // Header
+    HeaderLayout: TLayout;
+    LblHospitalName: TLabel;
+    LblPaySlipTitle: TLabel;
+    LblDateParams: TLabel;
+    
+    // Employee Info
+    EmpInfoLayout: TLayout;
+    RectEmpInfoBox: TRectangle;
+    LblEmpNameInfo: TLabel;
+    LblEmpMatricule: TLabel;
+    LblEmpFunction: TLabel;
+    LblEmpSS: TLabel;
+    
+    // Data Grid (Gains & Retenues)
+    GridContainer: TLayout;
+    GridPay: TStringGrid;
+    ColCode: TStringColumn;
+    ColLibelle: TStringColumn;
+    ColBase: TStringColumn;
+    ColTaux: TStringColumn;
+    ColGain: TStringColumn;
+    ColRetenue: TStringColumn;
+    
+    // Bottom Summary
+    FooterLayout: TLayout;
+    RectNetToPayBox: TRectangle;
+    LblNetTitle: TLabel;
+    LblNetValue: TLabel;
+    LblNetWords: TLabel;
+    
+  public
+    constructor Create(AOwner: TComponent); override;
+  end;
+
+var
+  PaySlipFrame: TPaySlipFrame;
+
+implementation
+
+{$R *.fmx}
+
+constructor TPaySlipFrame.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  // Setup texts programmatically
+  BtnPrint.Text := 'Imprimer (Impression Fictive)';
+  BtnExportPDF.Text := 'Exporter PDF';
+  
+  LblHospitalName.Text := 'HOPITAL CENTRAL DE REFERENCE';
+  LblPaySlipTitle.Text := 'BULLETIN DE PAIE';
+  LblDateParams.Text := 'Période: Mars 2024';
+  
+  LblEmpNameInfo.Text := 'Nom & Prénom : BENDJEDDOU Yassine';
+  LblEmpMatricule.Text := 'Matricule : EMP-001';
+  LblEmpFunction.Text := 'Fonction : Médecin Spécialiste Principal';
+  LblEmpSS.Text := 'N° Sécurité Sociale : 12 3456 7890 12';
+  
+  // Grid Columns Header Setup
+  ColCode.Header := 'Code';
+  ColLibelle.Header := 'Désignation';
+  ColBase.Header := 'Base';
+  ColTaux.Header := 'Taux/Nbr';
+  ColGain.Header := 'Gains (Rubriques)';
+  ColRetenue.Header := 'Retenues';
+  
+  GridPay.RowCount := 5;
+  // Base Salary
+  GridPay.Cells[0, 0] := '101';
+  GridPay.Cells[1, 0] := 'Salaire de Base';
+  GridPay.Cells[2, 0] := '45 000.00';
+  GridPay.Cells[3, 0] := '30';
+  GridPay.Cells[4, 0] := '45 000.00';
+  GridPay.Cells[5, 0] := '';
+  
+  // IEP
+  GridPay.Cells[0, 1] := '102';
+  GridPay.Cells[1, 1] := 'Prime d''Expérience (IEP)';
+  GridPay.Cells[2, 1] := '45 000.00';
+  GridPay.Cells[3, 1] := '5%';
+  GridPay.Cells[4, 1] := '2 250.00';
+  GridPay.Cells[5, 1] := '';
+  
+  // Retenue Securite Sociale
+  GridPay.Cells[0, 2] := '801';
+  GridPay.Cells[1, 2] := 'Retenue S.S (Sécurité Sociale)';
+  GridPay.Cells[2, 2] := '47 250.00';
+  GridPay.Cells[3, 2] := '9%';
+  GridPay.Cells[4, 2] := '';
+  GridPay.Cells[5, 2] := '4 252.50';
+  
+  // IRG
+  GridPay.Cells[0, 3] := '802';
+  GridPay.Cells[1, 3] := 'Retenue I.R.G';
+  GridPay.Cells[2, 3] := '42 997.50';
+  GridPay.Cells[3, 3] := '';
+  GridPay.Cells[4, 3] := '';
+  GridPay.Cells[5, 3] := '5 120.00';
+  
+  // Total Row
+  GridPay.Cells[0, 4] := '';
+  GridPay.Cells[1, 4] := 'TOTAUX GENERAUX';
+  GridPay.Cells[2, 4] := '';
+  GridPay.Cells[3, 4] := '';
+  GridPay.Cells[4, 4] := '47 250.00';
+  GridPay.Cells[5, 4] := '9 372.50';
+  
+  LblNetTitle.Text := 'Net a Payer (+)';
+  LblNetValue.Text := '37 877.50 DZD';
+  LblNetWords.Text := 'Arrêté le présent bulletin à la somme de : Trente-Sept Mille Huit Cent Soixante-Dix-Sept Dinars et Cinquante Centimes.';
+end;
+
+end.

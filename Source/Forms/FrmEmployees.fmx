@@ -1,0 +1,188 @@
+object EmployeesFrame: TEmployeesFrame
+  Size.Width = 900.000000000000000000
+  Size.Height = 650.000000000000000000
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = x00FFFFFF
+    Fill.Kind = Solid
+    Stroke.Kind = None
+    
+    object TopBarLayout: TLayout
+      Align = Top
+      Size.Height = 80.000000000000000000
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      
+      object TopBarRect: TRectangle
+        Align = Client
+        Fill.Color = xFFFFFFFF
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        
+        object ShadowTopBar: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000000000000000
+          Opacity = 0.100000000000000000
+        end
+        
+        object LblPageTitle: TLabel
+          Align = Left
+          Size.Width = 250.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Font.Size = 18.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+          TextSettings.VertAlign = Center
+          StyledSettings = [Family]
+          Text = 'Liste des Employes'
+        end
+        
+        object SearchEdit: TEdit
+          Align = Left
+          Size.Width = 250.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Margins.Bottom = 20.000000000000000000
+          TextPrompt = 'Rechercher...'
+          Font.Size = 14.000000000000000000
+        end
+        
+        object FilterComboBox: TComboBox
+          Align = Left
+          Size.Width = 150.000000000000000000
+          Margins.Left = 10.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Margins.Bottom = 20.000000000000000000
+          Items.Strings = (
+            'Tous les departements'
+            'Medical'
+            'Paramedical'
+            'Administration')
+          ItemIndex = 0
+        end
+        
+        object BtnAddEmployee: TButton
+          Align = Right
+          Size.Width = 180.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Margins.Right = 20.000000000000000000
+          Margins.Bottom = 20.000000000000000000
+          Text = '+ Ajouter un Employe'
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF112240
+          Font.Style = [fsBold]
+          OnClick = BtnAddEmployeeClick
+        end
+      end
+    end
+    
+    object GridContainerRect: TRectangle
+      Align = Client
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Fill.Color = xFFFFFFFF
+      Stroke.Kind = None
+      XRadius = 8.000000000000000000
+      YRadius = 8.000000000000000000
+      
+      object ShadowGrid: TShadowEffect
+        Distance = 2.000000000000000000
+        Direction = 90.000000000000000000
+        Softness = 0.200000000000000000
+        Opacity = 0.100000000000000000
+      end
+      
+      object EmployeesGrid: TStringGrid
+        Align = Client
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        CanFocus = True
+        ClipChildren = True
+        Size.Width = 840.000000000000000000
+        Size.Height = 450.000000000000000000
+        RowCount = 10
+        Options = [Editing, ColumnResize, ColLines, RowLines, Tabs, Header, HeaderClick]
+        Viewport.Width = 840.000000000000000000
+        Viewport.Height = 425.000000000000000000
+        
+        object ColID: TStringColumn
+          Header = 'Matricule'
+          Width = 100.000000000000000000
+        end
+        object ColName: TStringColumn
+          Header = 'Nom & Prenom'
+          Width = 200.000000000000000000
+        end
+        object ColDept: TStringColumn
+          Header = 'Departement'
+          Width = 150.000000000000000000
+        end
+        object ColPosition: TStringColumn
+          Header = 'Fonction'
+          Width = 150.000000000000000000
+        end
+        object ColClass: TStringColumn
+          Header = 'Categorie'
+          Width = 100.000000000000000000
+        end
+        object ColActions: TStringColumn
+          Header = 'Actions'
+          Width = 100.000000000000000000
+        end
+      end
+      
+      object FooterLayout: TLayout
+        Align = Bottom
+        Size.Height = 50.000000000000000000
+        
+        object LblTotalRecords: TLabel
+          Align = Left
+          Size.Width = 200.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          TextSettings.VertAlign = Center
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Total: 0 Employes'
+        end
+        
+        object BtnNextPage: TButton
+          Align = Right
+          Size.Width = 40.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 20.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Text = '>'
+        end
+        
+        object LblPageInfo: TLabel
+          Align = Right
+          Size.Width = 100.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF112240
+          TextSettings.HorzAlign = Center
+          TextSettings.VertAlign = Center
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Page 1 sur 1'
+        end
+        
+        object BtnPrevPage: TButton
+          Align = Right
+          Size.Width = 40.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Text = '<'
+        end
+      end
+    end
+  end
+end

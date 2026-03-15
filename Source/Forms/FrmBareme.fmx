@@ -1,0 +1,289 @@
+object BaremeFrame: TBaremeFrame
+  Size.Width = 900.000000000000000000
+  Size.Height = 648.000000000000000000
+  Size.PlatformDefault = False
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = xFFF0F2F5
+    Size.Width = 900.000000000000000000
+    Size.Height = 648.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object TopBarLayout: TLayout
+      Align = Top
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Position.X = 20.000000000000000000
+      Position.Y = 20.000000000000000000
+      Size.Width = 860.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      object TopBarRect: TRectangle
+        Align = Client
+        Fill.Color = claWhite
+        Size.Width = 860.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object ShadowTopBar: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
+        object LblPageTitle: TLabel
+          Align = Top
+          StyledSettings = [Family]
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 15.000000000000000000
+          Size.Width = 840.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 20.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = xFF112240
+          Text = 'Baremes et Configurations'
+        end
+        object LblPageDesc: TLabel
+          Align = Top
+          StyledSettings = [Family, Style, FontColor]
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 840.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          Text = 'Gestion des grilles...'
+        end
+      end
+    end
+    object TabConfig: TTabControl
+      Align = Client
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Size.Width = 860.000000000000000000
+      Size.Height = 488.000000000000000000
+      Size.PlatformDefault = False
+      TabIndex = 0
+      TabPosition = Top
+      Sizes = (
+        860s
+        462s
+        860s
+        462s
+        860s
+        462s)
+      object TabPointIndiciaire: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = True
+        Size.Width = 99.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'Grille Indiciaire'
+        ExplicitSize.cx = 150.000000000000000000
+        ExplicitSize.cy = 34.000000000000000000
+        object PanelPointInd: TLayout
+          Align = Client
+          Size.Width = 860.000000000000000000
+          Size.Height = 462.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object TopPointInd: TLayout
+            Align = Top
+            Size.Width = 860.000000000000000000
+            Size.Height = 60.000000000000000000
+            Size.PlatformDefault = False
+            object LblCurrentPoint: TLabel
+              Align = Left
+              StyledSettings = [Family]
+              Size.Width = 350.000000000000000000
+              Size.Height = 60.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xFF112240
+              Text = 'Valeur Actuelle...'
+            end
+            object BtnEditPoint: TButton
+              Align = Right
+              Margins.Top = 10.000000000000000000
+              Margins.Bottom = 10.000000000000000000
+              Position.X = 660.000000000000000000
+              Position.Y = 10.000000000000000000
+              Size.Width = 200.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Modifier Valeur'
+              TextSettings.Font.Size = 14.000000000000000000
+            end
+          end
+          object GridClasses: TStringGrid
+            Align = Client
+            CanFocus = True
+            ClipChildren = True
+            Size.Width = 860.000000000000000000
+            Size.Height = 402.000000000000000000
+            Size.PlatformDefault = False
+            RowCount = 4
+            Options = [Editing, ColumnResize, ColLines, RowLines, Tabs, Header]
+            Viewport.Width = 860.000000000000000000
+            Viewport.Height = 402.000000000000000000
+            object ColClasse: TStringColumn
+              Header = 'Classe'
+              Size.Width = 150.000000000000000000
+            end
+            object ColDesignation: TStringColumn
+              Header = 'Designation'
+              Size.Width = 300.000000000000000000
+            end
+            object ColIndiceMin: TStringColumn
+              Header = 'Indice Minimal'
+              Size.Width = 150.000000000000000000
+            end
+          end
+        end
+      end
+      object TabIRG: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        Size.Width = 87.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'Bareme I.R.G'
+        ExplicitSize.cx = 120.000000000000000000
+        ExplicitSize.cy = 34.000000000000000000
+        object PanelIRG: TLayout
+          Align = Client
+          Size.Width = 860.000000000000000000
+          Size.Height = 462.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object GridIRG: TStringGrid
+            Align = Client
+            CanFocus = True
+            ClipChildren = True
+            Margins.Top = 10.000000000000000000
+            Size.Width = 860.000000000000000000
+            Size.Height = 452.000000000000000000
+            Size.PlatformDefault = False
+            RowCount = 4
+            Options = [Editing, ColumnResize, ColLines, RowLines, Tabs, Header]
+            Viewport.Width = 860.000000000000000000
+            Viewport.Height = 452.000000000000000000
+            object ColTrancheIRG: TStringColumn
+              Header = 'Tranche'
+            end
+            object ColMinIRG: TStringColumn
+              Header = 'De (DZD)'
+              Size.Width = 150.000000000000000000
+            end
+            object ColMaxIRG: TStringColumn
+              Header = 'A (DZD)'
+              Size.Width = 150.000000000000000000
+            end
+            object ColTauxIRG: TStringColumn
+              Header = 'Taux (%)'
+            end
+            object ColAbattementIRG: TStringColumn
+              Header = 'Abattement'
+              Size.Width = 200.000000000000000000
+            end
+          end
+        end
+      end
+      object TabRubriques: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        Size.Width = 74.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'Rubriques'
+        ExplicitSize.cx = 180.000000000000000000
+        ExplicitSize.cy = 34.000000000000000000
+        object PanelRubriques: TLayout
+          Align = Client
+          Size.Width = 860.000000000000000000
+          Size.Height = 462.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object TopRubriques: TLayout
+            Align = Top
+            Size.Width = 860.000000000000000000
+            Size.Height = 60.000000000000000000
+            Size.PlatformDefault = False
+            object BtnAddRubrique: TButton
+              Align = Right
+              Margins.Top = 10.000000000000000000
+              Margins.Bottom = 10.000000000000000000
+              Position.X = 660.000000000000000000
+              Position.Y = 10.000000000000000000
+              Size.Width = 200.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              Text = '+ Nouvelle Rubrique'
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xFF112240
+            end
+          end
+          object GridRubriques: TStringGrid
+            Align = Client
+            CanFocus = True
+            ClipChildren = True
+            Size.Width = 860.000000000000000000
+            Size.Height = 402.000000000000000000
+            Size.PlatformDefault = False
+            RowCount = 4
+            Options = [Editing, ColumnResize, ColLines, RowLines, Tabs, Header]
+            Viewport.Width = 860.000000000000000000
+            Viewport.Height = 402.000000000000000000
+            object ColRubCode: TStringColumn
+              Header = 'Code'
+              Size.Width = 80.000000000000000000
+            end
+            object ColRubLibelle: TStringColumn
+              Header = 'Libelle'
+              Size.Width = 250.000000000000000000
+            end
+            object ColRubType: TStringColumn
+              Header = 'Type'
+            end
+            object ColRubTaux: TStringColumn
+              Header = 'Taux Fixe'
+            end
+            object ColRubCotisable: TCheckColumn
+              Header = 'Soumis SS'
+              Size.Width = 100.000000000000000000
+            end
+            object ColRubImposable: TCheckColumn
+              Header = 'Soumis IRG'
+              Size.Width = 100.000000000000000000
+            end
+          end
+        end
+      end
+    end
+  end
+end

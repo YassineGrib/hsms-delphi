@@ -1,0 +1,229 @@
+object DashboardFrame: TDashboardFrame
+  Size.Width = 900.000000000000000000
+  Size.Height = 650.000000000000000000
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = x00FFFFFF
+    Fill.Kind = Solid
+    Stroke.Kind = None
+    
+    object TopFlowLayout: TFlowLayout
+      Align = Top
+      Size.Height = 160.000000000000000000
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      HorizontalGap = 20
+      VerticalGap = 20
+      Justify = Left
+      
+      object CardEmployees: TRectangle
+        Size.Width = 200.000000000000000000
+        Size.Height = 120.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object ShadowEmployees: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000000000000000
+          Opacity = 0.100000000000000000
+        end
+        object LblEmployeesTitle: TLabel
+          Position.X = 15.000000000000000000
+          Position.Y = 15.000000000000000000
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Total Employes'
+        end
+        object LblEmployeesValue: TLabel
+          Position.X = 15.000000000000000000
+          Position.Y = 50.000000000000000000
+          Font.Size = 36.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF0A192F
+          StyledSettings = [Family]
+          Text = '145'
+        end
+      end
+      
+      object CardPayroll: TRectangle
+        Size.Width = 200.000000000000000000
+        Size.Height = 120.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object ShadowPayroll: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000000000000000
+          Opacity = 0.100000000000000000
+        end
+        object LblPayrollTitle: TLabel
+          Position.X = 15.000000000000000000
+          Position.Y = 15.000000000000000000
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Masse Salariale'
+        end
+        object LblPayrollValue: TLabel
+          Position.X = 15.000000000000000000
+          Position.Y = 50.000000000000000000
+          Font.Size = 24.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF64FFDA
+          StyledSettings = [Family]
+          Text = '14,500,000 DZD'
+        end
+      end
+      
+      object CardDepts: TRectangle
+        Size.Width = 200.000000000000000000
+        Size.Height = 120.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object ShadowDepts: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000000000000000
+          Opacity = 0.100000000000000000
+        end
+        object LblDeptsTitle: TLabel
+          Position.X = 15.000000000000000000
+          Position.Y = 15.000000000000000000
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Departements'
+        end
+        object LblDeptsValue: TLabel
+          Position.X = 15.000000000000000000
+          Position.Y = 50.000000000000000000
+          Font.Size = 36.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF0A192F
+          StyledSettings = [Family]
+          Text = '6'
+        end
+      end
+      
+      object CardAbsences: TRectangle
+        Size.Width = 200.000000000000000000
+        Size.Height = 120.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object ShadowAbsences: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000000000000000
+          Opacity = 0.100000000000000000
+        end
+        object LblAbsencesTitle: TLabel
+          Position.X = 15.000000000000000000
+          Position.Y = 15.000000000000000000
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Absences (Jours)'
+        end
+        object LblAbsencesValue: TLabel
+          Position.X = 15.000000000000000000
+          Position.Y = 50.000000000000000000
+          Font.Size = 36.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFFD32F2F
+          StyledSettings = [Family]
+          Text = '12'
+        end
+      end
+    end
+    
+    object MiddleLayout: TLayout
+      Align = Client
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      
+      object MainChartRect: TRectangle
+        Align = Client
+        Margins.Right = 20.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object ShadowChart: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000000000000000
+          Opacity = 0.100000000000000000
+        end
+        object LblChartTitle: TLabel
+          Align = Top
+          Size.Height = 40.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Font.Size = 18.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+          StyledSettings = [Family]
+          Text = 'Repartition des Salaires'
+        end
+      end
+      
+      object QuickActionsRect: TRectangle
+        Align = Right
+        Size.Width = 300.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object ShadowActions: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000000000000000
+          Opacity = 0.100000000000000000
+        end
+        object LblActionsTitle: TLabel
+          Align = Top
+          Size.Height = 40.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Font.Size = 18.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+          StyledSettings = [Family]
+          Text = 'Actions Rapides'
+        end
+        object BtnNewEmployee: TButton
+          Align = Top
+          Size.Height = 45.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = 20.000000000000000000
+          Text = 'Nouveau Employe'
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF112240
+        end
+        object BtnRunCalc: TButton
+          Align = Top
+          Size.Height = 45.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Margins.Right = 20.000000000000000000
+          Text = 'Lancer le Calcul'
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF112240
+        end
+      end
+    end
+  end
+end

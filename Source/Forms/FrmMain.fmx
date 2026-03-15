@@ -1,0 +1,198 @@
+object MainForm: TMainForm
+  Left = 0
+  Top = 0
+  Caption = 'HSMS - Systeme de Gestion des Salaires'
+  ClientHeight = 768
+  ClientWidth = 1024
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  DesignerMasterStyle = 0
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = xFFF0F2F5
+    Size.Width = 1024.000000000000000000
+    Size.Height = 768.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object SidebarRect: TRectangle
+      Align = Left
+      Fill.Color = xFF112240
+      Position.Y = 70.000000000000000000
+      Size.Width = 240.000000000000000000
+      Size.Height = 698.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      object AppTitleLabel: TLabel
+        Align = Top
+        StyledSettings = [Family]
+        Size.Width = 240.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 28.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = xFF64FFDA
+        TextSettings.HorzAlign = Center
+        Text = 'HSMS'
+      end
+      object SidebarMenuLayout: TLayout
+        Align = Top
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 80.000000000000000000
+        Size.Width = 220.000000000000000000
+        Size.Height = 350.000000000000000000
+        Size.PlatformDefault = False
+        object BtnDashboard: TButton
+          Align = Top
+          StyledSettings = [Family, Style, FontColor, Other]
+          Margins.Bottom = 5.000000000000000000
+          Size.Width = 220.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Tableau de Bord'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFFCCD6F6
+          OnClick = MenuButtonClick
+        end
+        object BtnEmployees: TButton
+          Align = Top
+          StyledSettings = [Family, FontColor, Other]
+          Margins.Bottom = 5.000000000000000000
+          Position.Y = 55.000000000000000000
+          Size.Width = 220.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Gestion Employes'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFFCCD6F6
+          OnClick = MenuButtonClick
+        end
+        object BtnSalary: TButton
+          Align = Top
+          StyledSettings = [Family, FontColor, Other]
+          Margins.Bottom = 5.000000000000000000
+          Position.Y = 110.000000000000000000
+          Size.Width = 220.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Calcul Salaire'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFFCCD6F6
+          OnClick = MenuButtonClick
+        end
+        object BtnReports: TButton
+          Align = Top
+          StyledSettings = [Family, Size, Style, FontColor, Other]
+          Margins.Bottom = 5.000000000000000000
+          Position.Y = 165.000000000000000000
+          Size.Width = 220.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Rapports & Fiches'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFFCCD6F6
+          OnClick = MenuButtonClick
+        end
+        object BtnSettings: TButton
+          Align = Top
+          StyledSettings = [Family, FontColor, Other]
+          Margins.Bottom = 5.000000000000000000
+          Position.Y = 220.000000000000000000
+          Size.Width = 220.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Parametres'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFFCCD6F6
+          OnClick = MenuButtonClick
+        end
+      end
+      object UserProfileRect: TRectangle
+        Align = Bottom
+        Fill.Color = xFF0A192F
+        Position.Y = 618.000000000000000000
+        Size.Width = 240.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object UserNameLabel: TLabel
+          StyledSettings = [Family, Other]
+          Position.X = 20.000000000000000000
+          Position.Y = 16.000000000000000000
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claWhite
+          Text = 'Admin User'
+        end
+        object UserRoleLabel: TLabel
+          StyledSettings = [Family, Other]
+          Position.X = 20.000000000000000000
+          Position.Y = 40.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          Text = 'Administrateur'
+        end
+        object LogoutBtn: TButton
+          StyledSettings = [Family, Other]
+          Position.X = 160.000000000000000000
+          Position.Y = 24.000000000000000000
+          Size.Width = 60.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Sortir'
+          OnClick = LogoutBtnClick
+        end
+      end
+    end
+    object TopHeaderRect: TRectangle
+      Align = Top
+      Fill.Color = claWhite
+      Size.Width = 1024.000000000000000000
+      Size.Height = 70.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFE4E6EF
+      object PageTitleLabel: TLabel
+        Align = Left
+        StyledSettings = [Family]
+        Size.Width = 400.000000000000000000
+        Size.Height = 70.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 22.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = xFF0A192F
+        Text = 'Tableau de Bord'
+      end
+      object ClockLabel: TLabel
+        Align = Right
+        StyledSettings = [Family, Style, FontColor, Other]
+        Margins.Right = 30.000000000000000000
+        Position.X = 744.000000000000000000
+        Size.Width = 250.000000000000000000
+        Size.Height = 70.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 15.000000000000000000
+        TextSettings.FontColor = xFF8892B0
+        TextSettings.HorzAlign = Trailing
+        Text = '00:00:00'
+      end
+    end
+    object ContentLayout: TLayout
+      Align = Client
+      Margins.Left = 30.000000000000000000
+      Margins.Top = 30.000000000000000000
+      Margins.Right = 30.000000000000000000
+      Margins.Bottom = 30.000000000000000000
+      Size.Width = 724.000000000000000000
+      Size.Height = 638.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object TimerClock: TTimer
+    Enabled = False
+    OnTimer = TimerClockTimer
+  end
+end

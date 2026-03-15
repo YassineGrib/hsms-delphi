@@ -1,0 +1,180 @@
+object SettingsFrame: TSettingsFrame
+  Size.Width = 900.000000000000000000
+  Size.Height = 650.000000000000000000
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = xFFF0F2F5
+    Stroke.Kind = None
+    
+    object TopBarLayout: TLayout
+      Align = Top
+      Size.Height = 100.000000000000000000
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      
+      object TopBarRect: TRectangle
+        Align = Client
+        Fill.Color = xFFFFFFFF
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        
+        object ShadowTopBar: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000000000000000
+          Opacity = 0.100000000000000000
+        end
+        
+        object LblPageTitle: TLabel
+          Align = Top
+          Size.Height = 35.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Font.Size = 20.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+          TextSettings.VertAlign = Center
+          StyledSettings = [Family]
+          Text = 'Parametres Generaux'
+        end
+        object LblPageDesc: TLabel
+          Align = Top
+          Size.Height = 30.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          TextSettings.VertAlign = Center
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Configuration globale du systeme'
+        end
+      end
+    end
+    
+    object TabSettings: TTabControl
+      Align = Client
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      
+      object TabGeneral: TTabItem
+        IsSelected = False
+        Size.Width = 120.000000000000000000
+        Size.Height = 34.000000000000000000
+        Text = 'General'
+      end
+      
+      object TabPrint: TTabItem
+        IsSelected = False
+        Size.Width = 120.000000000000000000
+        Size.Height = 34.000000000000000000
+        Text = 'Impression'
+      end
+      
+      object TabDatabase: TTabItem
+        CustomControl = PanelDatabase
+        IsSelected = True
+        Size.Width = 150.000000000000000000
+        Size.Height = 34.000000000000000000
+        Text = 'Base de donnees'
+        
+        object PanelDatabase: TLayout
+          Align = Client
+          
+          object LblDbTitle: TLabel
+            Position.X = 20.000000000000000000
+            Position.Y = 20.000000000000000000
+            Size.Width = 400.000000000000000000
+            Font.Size = 16.000000000000000000
+            Font.Style = [fsBold]
+            TextSettings.FontColor = xFF112240
+            StyledSettings = [Family]
+            Text = 'Chemin de la Base de donnees'
+          end
+          
+          object EditDbPath: TEdit
+            Position.X = 20.000000000000000000
+            Position.Y = 60.000000000000000000
+            Size.Width = 500.000000000000000000
+            Size.Height = 40.000000000000000000
+            Font.Size = 14.000000000000000000
+          end
+          
+          object BtnSelectDb: TButton
+            Position.X = 530.000000000000000000
+            Position.Y = 60.000000000000000000
+            Size.Width = 150.000000000000000000
+            Size.Height = 40.000000000000000000
+            Text = 'Parcourir...'
+          end
+          
+          object LayoutDbActions: TLayout
+            Position.X = 20.000000000000000000
+            Position.Y = 150.000000000000000000
+            Size.Width = 700.000000000000000000
+            Size.Height = 200.000000000000000000
+            
+            object BtnBackup: TButton
+              Position.X = 0.000000000000000000
+              Position.Y = 0.000000000000000000
+              Size.Width = 300.000000000000000000
+              Size.Height = 60.000000000000000000
+              Text = 'Sauvegarder la base de donnees'
+              Font.Size = 16.000000000000000000
+              Font.Style = [fsBold]
+              TextSettings.FontColor = xFF112240
+              OnClick = BtnBackupClick
+            end
+            
+            object BtnRestore: TButton
+              Position.X = 350.000000000000000000
+              Position.Y = 0.000000000000000000
+              Size.Width = 300.000000000000000000
+              Size.Height = 60.000000000000000000
+              Text = 'Restaurer une sauvegarde'
+              Font.Size = 16.000000000000000000
+              Font.Style = [fsBold]
+              TextSettings.FontColor = xFF112240
+              OnClick = BtnRestoreClick
+            end
+            
+            object LblProgress: TLabel
+              Position.X = 0.000000000000000000
+              Position.Y = 100.000000000000000000
+              Size.Width = 650.000000000000000000
+              Font.Size = 14.000000000000000000
+              TextSettings.FontColor = xFF333333
+              StyledSettings = [Family, Style, FontColor]
+              Text = 'Statut...'
+              Visible = False
+            end
+            
+            object ProgressBarDB: TProgressBar
+              Position.X = 0.000000000000000000
+              Position.Y = 140.000000000000000000
+              Size.Width = 650.000000000000000000
+              Size.Height = 30.000000000000000000
+              Max = 100.000000000000000000
+              Visible = False
+            end
+          end
+        end
+      end
+      
+      object TabUser: TTabItem
+        IsSelected = False
+        Size.Width = 120.000000000000000000
+        Size.Height = 34.000000000000000000
+        Text = 'Utilisateur'
+      end
+    end
+  end
+  
+  object TimerProgress: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = TimerProgressTimer
+  end
+end

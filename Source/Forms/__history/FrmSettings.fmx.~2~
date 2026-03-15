@@ -1,0 +1,234 @@
+object SettingsFrame: TSettingsFrame
+  Size.Width = 900.000000000000000000
+  Size.Height = 648.000000000000000000
+  Size.PlatformDefault = False
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = xFFF0F2F5
+    Size.Width = 900.000000000000000000
+    Size.Height = 648.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object TopBarLayout: TLayout
+      Align = Top
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Position.X = 20.000000000000000000
+      Position.Y = 20.000000000000000000
+      Size.Width = 860.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      object TopBarRect: TRectangle
+        Align = Client
+        Fill.Color = claWhite
+        Size.Width = 860.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object ShadowTopBar: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
+        object LblPageTitle: TLabel
+          Align = Top
+          StyledSettings = [Family]
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 15.000000000000000000
+          Size.Width = 840.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 20.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = xFF112240
+          Text = 'Parametres Generaux'
+        end
+        object LblPageDesc: TLabel
+          Align = Top
+          StyledSettings = [Family, Style, FontColor]
+          Margins.Left = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 840.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          Text = 'Configuration globale du systeme'
+        end
+      end
+    end
+    object TabSettings: TTabControl
+      Align = Client
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Size.Width = 860.000000000000000000
+      Size.Height = 488.000000000000000000
+      Size.PlatformDefault = False
+      TabIndex = 2
+      TabPosition = Top
+      Sizes = (
+        860s
+        462s
+        860s
+        462s
+        860s
+        462s
+        860s
+        462s)
+      object TabGeneral: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        Size.Width = 61.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'General'
+        ExplicitSize.cx = 120.000000000000000000
+        ExplicitSize.cy = 34.000000000000000000
+      end
+      object TabPrint: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        Size.Width = 78.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'Impression'
+        ExplicitSize.cx = 120.000000000000000000
+        ExplicitSize.cy = 34.000000000000000000
+      end
+      object TabDatabase: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = True
+        Size.Width = 110.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'Base de donnees'
+        ExplicitSize.cx = 150.000000000000000000
+        ExplicitSize.cy = 34.000000000000000000
+        object PanelDatabase: TLayout
+          Align = Client
+          Size.Width = 860.000000000000000000
+          Size.Height = 462.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object LblDbTitle: TLabel
+            StyledSettings = [Family]
+            Position.X = 20.000000000000000000
+            Position.Y = 20.000000000000000000
+            Size.Width = 400.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF112240
+            Text = 'Chemin de la Base de donnees'
+          end
+          object EditDbPath: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            TextSettings.Font.Size = 14.000000000000000000
+            Position.X = 20.000000000000000000
+            Position.Y = 60.000000000000000000
+            Size.Width = 500.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object BtnSelectDb: TButton
+            Position.X = 530.000000000000000000
+            Position.Y = 60.000000000000000000
+            Size.Width = 150.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Parcourir...'
+          end
+          object LayoutDbActions: TLayout
+            Position.X = 20.000000000000000000
+            Position.Y = 150.000000000000000000
+            Size.Width = 700.000000000000000000
+            Size.Height = 200.000000000000000000
+            Size.PlatformDefault = False
+            object BtnBackup: TButton
+              Size.Width = 300.000000000000000000
+              Size.Height = 60.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Sauvegarder la base de donnees'
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xFF112240
+              OnClick = BtnBackupClick
+            end
+            object BtnRestore: TButton
+              Position.X = 350.000000000000000000
+              Size.Width = 300.000000000000000000
+              Size.Height = 60.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Restaurer une sauvegarde'
+              TextSettings.Font.Size = 16.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.FontColor = xFF112240
+              OnClick = BtnRestoreClick
+            end
+            object LblProgress: TLabel
+              StyledSettings = [Family, Style, FontColor]
+              Position.Y = 100.000000000000000000
+              Size.Width = 650.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.FontColor = xFF333333
+              Text = 'Statut...'
+              Visible = False
+            end
+            object ProgressBarDB: TProgressBar
+              Orientation = Horizontal
+              Position.Y = 140.000000000000000000
+              Size.Width = 650.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              Visible = False
+            end
+          end
+        end
+      end
+      object TabUser: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = False
+        Size.Width = 74.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'Utilisateur'
+        ExplicitSize.cx = 120.000000000000000000
+        ExplicitSize.cy = 34.000000000000000000
+      end
+    end
+  end
+  object TimerProgress: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = TimerProgressTimer
+  end
+end

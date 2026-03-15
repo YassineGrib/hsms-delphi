@@ -1,0 +1,224 @@
+object BaremeFrame: TBaremeFrame
+  Size.Width = 900.000000000000000000
+  Size.Height = 650.000000000000000000
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = xFFF0F2F5
+    Stroke.Kind = None
+    
+    object TopBarLayout: TLayout
+      Align = Top
+      Size.Height = 100.000000000000000000
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      
+      object TopBarRect: TRectangle
+        Align = Client
+        Fill.Color = xFFFFFFFF
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        
+        object ShadowTopBar: TShadowEffect
+          Distance = 2.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.200000000000000000
+          Opacity = 0.100000000000000000
+        end
+        
+        object LblPageTitle: TLabel
+          Align = Top
+          Size.Height = 35.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Margins.Top = 15.000000000000000000
+          Font.Size = 20.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFF112240
+          TextSettings.VertAlign = Center
+          StyledSettings = [Family]
+          Text = 'Baremes et Configurations'
+        end
+        object LblPageDesc: TLabel
+          Align = Top
+          Size.Height = 30.000000000000000000
+          Margins.Left = 20.000000000000000000
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          TextSettings.VertAlign = Center
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Gestion des grilles...'
+        end
+      end
+    end
+    
+    object TabConfig: TTabControl
+      Align = Client
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      
+      object TabPointIndiciaire: TTabItem
+        CustomControl = PanelPointInd
+        IsSelected = True
+        Size.Width = 150.000000000000000000
+        Size.Height = 34.000000000000000000
+        Text = 'Grille Indiciaire'
+        
+        object PanelPointInd: TLayout
+          Align = Client
+          
+          object TopPointInd: TLayout
+            Align = Top
+            Size.Height = 60.000000000000000000
+            
+            object LblCurrentPoint: TLabel
+              Align = Left
+              Size.Width = 350.000000000000000000
+              Font.Size = 16.000000000000000000
+              Font.Style = [fsBold]
+              TextSettings.FontColor = xFF112240
+              TextSettings.VertAlign = Center
+              StyledSettings = [Family]
+              Text = 'Valeur Actuelle...'
+            end
+            
+            object BtnEditPoint: TButton
+              Align = Right
+              Size.Width = 200.000000000000000000
+              Margins.Top = 10.000000000000000000
+              Margins.Bottom = 10.000000000000000000
+              Text = 'Modifier Valeur'
+              Font.Size = 14.000000000000000000
+            end
+          end
+          
+          object GridClasses: TStringGrid
+            Align = Client
+            CanFocus = True
+            ClipChildren = True
+            Options = [Editing, ColumnResize, ColLines, RowLines, Tabs, Header]
+            RowCount = 4
+            
+            object ColClasse: TStringColumn
+              Header = 'Classe'
+              Width = 150.000000000000000000
+            end
+            object ColDesignation: TStringColumn
+              Header = 'Designation'
+              Width = 300.000000000000000000
+            end
+            object ColIndiceMin: TStringColumn
+              Header = 'Indice Minimal'
+              Width = 150.000000000000000000
+            end
+          end
+        end
+      end
+      
+      object TabIRG: TTabItem
+        CustomControl = PanelIRG
+        IsSelected = False
+        Size.Width = 120.000000000000000000
+        Size.Height = 34.000000000000000000
+        Text = 'Bareme I.R.G'
+        
+        object PanelIRG: TLayout
+          Align = Client
+          
+          object GridIRG: TStringGrid
+            Align = Client
+            Margins.Top = 10.000000000000000000
+            CanFocus = True
+            ClipChildren = True
+            Options = [Editing, ColumnResize, ColLines, RowLines, Tabs, Header]
+            RowCount = 4
+            
+            object ColTrancheIRG: TStringColumn
+              Header = 'Tranche'
+              Width = 100.000000000000000000
+            end
+            object ColMinIRG: TStringColumn
+              Header = 'De (DZD)'
+              Width = 150.000000000000000000
+            end
+            object ColMaxIRG: TStringColumn
+              Header = 'A (DZD)'
+              Width = 150.000000000000000000
+            end
+            object ColTauxIRG: TStringColumn
+              Header = 'Taux (%)'
+              Width = 100.000000000000000000
+            end
+            object ColAbattementIRG: TStringColumn
+              Header = 'Abattement'
+              Width = 200.000000000000000000
+            end
+          end
+        end
+      end
+      
+      object TabRubriques: TTabItem
+        CustomControl = PanelRubriques
+        IsSelected = False
+        Size.Width = 180.000000000000000000
+        Size.Height = 34.000000000000000000
+        Text = 'Rubriques'
+        
+        object PanelRubriques: TLayout
+          Align = Client
+          
+          object TopRubriques: TLayout
+            Align = Top
+            Size.Height = 60.000000000000000000
+            
+            object BtnAddRubrique: TButton
+              Align = Right
+              Size.Width = 200.000000000000000000
+              Margins.Top = 10.000000000000000000
+              Margins.Bottom = 10.000000000000000000
+              Text = '+ Nouvelle Rubrique'
+              Font.Size = 14.000000000000000000
+              Font.Style = [fsBold]
+              TextSettings.FontColor = xFF112240
+            end
+          end
+          
+          object GridRubriques: TStringGrid
+            Align = Client
+            CanFocus = True
+            ClipChildren = True
+            Options = [Editing, ColumnResize, ColLines, RowLines, Tabs, Header]
+            RowCount = 4
+            
+            object ColRubCode: TStringColumn
+              Header = 'Code'
+              Width = 80.000000000000000000
+            end
+            object ColRubLibelle: TStringColumn
+              Header = 'Libelle'
+              Width = 250.000000000000000000
+            end
+            object ColRubType: TStringColumn
+              Header = 'Type'
+              Width = 100.000000000000000000
+            end
+            object ColRubTaux: TStringColumn
+              Header = 'Taux Fixe'
+              Width = 100.000000000000000000
+            end
+            object ColRubCotisable: TCheckColumn
+              Header = 'Soumis SS'
+              Width = 100.000000000000000000
+            end
+            object ColRubImposable: TCheckColumn
+              Header = 'Soumis IRG'
+              Width = 100.000000000000000000
+            end
+          end
+        end
+      end
+    end
+  end
+end

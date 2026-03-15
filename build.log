@@ -1,0 +1,7 @@
+Embarcadero Delphi for Win32 compiler version 35.0
+Copyright (c) 1983,2022 Embarcadero Technologies, Inc.
+Source\Forms\FrmSalaryCalc.pas(18) Error: E2003 Undeclared identifier: 'TShadowEffect'
+Source\Forms\FrmSalaryCalc.pas(18) Error: E2217 Published field 'ShadowTopBar' not a class or interface type
+Source\Forms\FrmSalaryCalc.pas(33) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmSalaryCalc.pas(33) Error: E2217 Published field 'ShadowMainContent' not a class or interface type
+Source\Forms\FrmSalaryCalc.pas(76) Fatal: F2063 Could not compile used unit 'FrmPaySlip.pas'

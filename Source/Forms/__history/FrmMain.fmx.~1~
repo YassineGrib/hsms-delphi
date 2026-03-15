@@ -1,0 +1,182 @@
+object MainForm: TMainForm
+  Left = 0
+  Top = 0
+  Caption = 'HSMS - Systeme de Gestion des Salaires'
+  ClientHeight = 768
+  ClientWidth = 1024
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  DesignerMasterStyle = 0
+  
+  object bgRect: TRectangle
+    Align = Client
+    Fill.Color = xFFF0F2F5
+    Fill.Kind = Solid
+    Stroke.Kind = None
+    
+    object SidebarRect: TRectangle
+      Align = Left
+      Size.Width = 240.000000000000000000
+      Fill.Color = xFF112240
+      Fill.Kind = Solid
+      Stroke.Kind = None
+      
+      object AppTitleLabel: TLabel
+        Align = Top
+        Size.Height = 80.000000000000000000
+        Font.Size = 28.000000000000000000
+        Font.Style = [fsBold]
+        TextSettings.FontColor = xFF64FFDA
+        TextSettings.HorzAlign = Center
+        TextSettings.VertAlign = Center
+        StyledSettings = [Family]
+        Text = 'HSMS'
+      end
+      
+      object SidebarMenuLayout: TLayout
+        Align = Top
+        Size.Height = 350.000000000000000000
+        Position.Y = 100.000000000000000000
+        Margins.Left = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        
+        object BtnDashboard: TButton
+          Align = Top
+          Size.Height = 50.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Text = 'Tableau de Bord'
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFFCCD6F6
+          StyledSettings = [Family]
+          OnClick = MenuButtonClick
+        end
+        object BtnEmployees: TButton
+          Align = Top
+          Size.Height = 50.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Text = 'Gestion Employes'
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFFCCD6F6
+          StyledSettings = [Family]
+          OnClick = MenuButtonClick
+        end
+        object BtnSalary: TButton
+          Align = Top
+          Size.Height = 50.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Text = 'Calcul Salaire'
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFFCCD6F6
+          StyledSettings = [Family]
+          OnClick = MenuButtonClick
+        end
+        object BtnReports: TButton
+          Align = Top
+          Size.Height = 50.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Text = 'Rapports & Fiches'
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFFCCD6F6
+          StyledSettings = [Family]
+          OnClick = MenuButtonClick
+        end
+        object BtnSettings: TButton
+          Align = Top
+          Size.Height = 50.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Text = 'Parametres'
+          Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFFCCD6F6
+          StyledSettings = [Family]
+          OnClick = MenuButtonClick
+        end
+      end
+      
+      object UserProfileRect: TRectangle
+        Align = Bottom
+        Size.Height = 80.000000000000000000
+        Fill.Color = xFF0A192F
+        Fill.Kind = Solid
+        Stroke.Kind = None
+        
+        object UserNameLabel: TLabel
+          Position.X = 20.000000000000000000
+          Position.Y = 16.000000000000000000
+          Font.Size = 14.000000000000000000
+          Font.Style = [fsBold]
+          TextSettings.FontColor = xFFFFFFFF
+          StyledSettings = [Family]
+          Text = 'Admin User'
+        end
+        object UserRoleLabel: TLabel
+          Position.X = 20.000000000000000000
+          Position.Y = 40.000000000000000000
+          Font.Size = 12.000000000000000000
+          TextSettings.FontColor = xFF8892B0
+          StyledSettings = [Family, Style, FontColor]
+          Text = 'Administrateur'
+        end
+        object LogoutBtn: TButton
+          Position.X = 160.000000000000000000
+          Position.Y = 24.000000000000000000
+          Size.Width = 60.000000000000000000
+          Size.Height = 35.000000000000000000
+          Text = 'Sortir'
+          Font.Size = 12.000000000000000000
+          OnClick = LogoutBtnClick
+        end
+      end
+    end
+    
+    object TopHeaderRect: TRectangle
+      Align = Top
+      Size.Height = 70.000000000000000000
+      Fill.Color = xFFFFFFFF
+      Fill.Kind = Solid
+      Stroke.Color = xFFE4E6EF
+      Stroke.Kind = Solid
+      
+      object PageTitleLabel: TLabel
+        Position.X = 30.000000000000000000
+        Align = Left
+        Size.Width = 400.000000000000000000
+        Font.Size = 22.000000000000000000
+        Font.Style = [fsBold]
+        TextSettings.FontColor = xFF0A192F
+        TextSettings.VertAlign = Center
+        StyledSettings = [Family]
+        Text = 'Tableau de Bord'
+      end
+      
+      object ClockLabel: TLabel
+        Align = Right
+        Size.Width = 250.000000000000000000
+        Margins.Right = 30.000000000000000000
+        Font.Size = 15.000000000000000000
+        TextSettings.FontColor = xFF8892B0
+        TextSettings.HorzAlign = Trailing
+        TextSettings.VertAlign = Center
+        StyledSettings = [Family, Style]
+        Text = '00:00:00'
+      end
+    end
+    
+    object ContentLayout: TLayout
+      Align = Client
+      Margins.Left = 30.000000000000000000
+      Margins.Top = 30.000000000000000000
+      Margins.Right = 30.000000000000000000
+      Margins.Bottom = 30.000000000000000000
+    end
+  end
+  
+  object TimerClock: TTimer
+    Enabled = False
+    Interval = 1000
+    OnTimer = TimerClockTimer
+  end
+end
