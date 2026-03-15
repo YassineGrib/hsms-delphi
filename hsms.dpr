@@ -12,6 +12,7 @@ uses
   FrmPaySlip in 'Source\Forms\FrmPaySlip.pas' {PaySlipFrame: TFrame},
   FrmBareme in 'Source\Forms\FrmBareme.pas' {BaremeFrame: TFrame},
   FrmSettings in 'Source\Forms\FrmSettings.pas' {SettingsFrame: TFrame},
+  Model_Employee in 'Source\Models\Model_Employee.pas',
   FrmMain in 'Source\Forms\FrmMain.pas' {MainForm},
   DM_Database in 'Source\DataModules\DM_Database.pas' {DMDatabase: TDataModule},
   DB_Helper in 'Source\Utils\DB_Helper.pas',
@@ -22,7 +23,13 @@ uses
 {$R *.res}
 
 begin
+  ReportMemoryLeaksOnShutdown := True;
   Application.Initialize;
-  Application.CreateForm(TSplashForm, SplashForm);
-  Application.Run;
+  DMDatabase := TDMDatabase.Create; // Create Data Module instance
+  try
+    Application.CreateForm(TSplashForm, SplashForm);
+    Application.Run;
+  finally
+    DMDatabase.Free;
+  end;
 end.

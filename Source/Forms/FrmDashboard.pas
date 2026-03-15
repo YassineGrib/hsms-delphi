@@ -1,4 +1,4 @@
-﻿unit FrmDashboard;
+unit FrmDashboard;
 
 interface
 
@@ -44,6 +44,7 @@ type
     BtnNewEmployee: TButton;
     BtnRunCalc: TButton;
     ShadowActions: TShadowEffect;
+    procedure BtnNewEmployeeClick(Sender: TObject);
   public
     constructor Create(AOwner: TComponent); override;
   end;
@@ -53,7 +54,23 @@ var
 
 implementation
 
+uses
+  FrmEmployeeEdit, FrmEmployees;
+
 {$R *.fmx}
+
+procedure TDashboardFrame.BtnNewEmployeeClick(Sender: TObject);
+begin
+  if not Assigned(EmployeeEditForm) then
+    Application.CreateForm(TEmployeeEditForm, EmployeeEditForm);
+    
+  EmployeeEditForm.CurrentEmployeeId := 0; // 0 means insert new
+  if EmployeeEditForm.ShowModal = mrOk then
+  begin
+    if Assigned(EmployeesFrame) then
+      EmployeesFrame.RefreshData;
+  end;
+end;
 
 constructor TDashboardFrame.Create(AOwner: TComponent);
 begin
