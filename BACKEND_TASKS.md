@@ -30,13 +30,13 @@ Implement the decoupled business logic required for the ALgerian 7-Step Salary P
 ## 🔴 Phase 3: UI-To-Backend Integration
 Connect the UI forms created in the previous phase to the Database and Engines.
 
-- [ ] **Task 3.1: FrmSalaryCalc**
+- [x] **Task 3.1: FrmSalaryCalc**
   - Wire up the "Calculer" button to query active Employees, feed them through `Engine_Salary`, display the grid preview, and Save to `salary_records`.
-- [ ] **Task 3.2: FrmPaySlip**
+- [x] **Task 3.2: FrmPaySlip**
   - Fetch a finalized `salary_record` from the database. Map its fields to the `FrmPaySlip` UI labels dynamically (Gross, IRG, SS, Details).
-- [ ] **Task 3.3: FrmDashboard**
+- [x] **Task 3.3: FrmDashboard**
   - Replace dummy statistics with actual `COUNT(id)` for Employees/Departments, and `SUM(net_pay)` for total Payroll.
-- [ ] **Task 3.4: FrmBareme & FrmSettings**
+- [x] **Task 3.4: FrmBareme & FrmSettings**
   - Connect settings toggles to the DB and allow updating the Bareme records and IRG brackets.
 
 ---

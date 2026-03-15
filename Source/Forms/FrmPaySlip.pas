@@ -1,4 +1,4 @@
-﻿unit FrmPaySlip;
+unit FrmPaySlip;
 
 interface
 
@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.Objects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Grid, FMX.Grid.Style,
-  FMX.Effects, System.Rtti, FMX.ScrollBox;
+  FMX.Effects, System.Rtti, FMX.ScrollBox, Model_SalaryRecord, Model_Employee, DB_Helper;
 
 type
   TPaySlipFrame = class(TFrame)
@@ -57,6 +57,7 @@ type
     
   public
     constructor Create(AOwner: TComponent); override;
+    procedure LoadRecord(ASalaryRecord: TSalaryRecord);
   end;
 
 var
@@ -132,8 +133,88 @@ begin
   GridPay.Cells[5, 4] := '9 372.50';
   
   LblNetTitle.Text := 'Net a Payer (+)';
-  LblNetValue.Text := '37 877.50 DZD';
-  LblNetWords.Text := 'Arrêté le présent bulletin à la somme de : Trente-Sept Mille Huit Cent Soixante-Dix-Sept Dinars et Cinquante Centimes.';
+  LblNetValue.Text := '0.00 DZD';
+  LblNetWords.Text := 'Arrêté le présent bulletin à la somme de : ...';
+end;
+
+procedure TPaySlipFrame.LoadRecord(ASalaryRecord: TSalaryRecord);
+var
+  Emp: TEmployee;
+  RowIdx: Integer;
+  
+  // Add Row Helper string
+  procedure AddRow(const Code, Libelle, Base, Taux, Gain, Retenue: string);
+  begin
+    GridPay.RowCount := GridPay.RowCount + 1;
+    GridPay.Cells[0, RowIdx] := Code;
+    GridPay.Cells[1, RowIdx] := Libelle;
+    GridPay.Cells[2, RowIdx] := Base;
+    GridPay.Cells[3, RowIdx] := Taux;
+    GridPay.Cells[4, RowIdx] := Gain;
+    GridPay.Cells[5, RowIdx] := Retenue;
+    Inc(RowIdx);
+  end;
+
+begin
+  if not Assigned(ASalaryRecord) then Exit;
+  
+  Emp := TEmployee.LoadFromDB(ASalaryRecord.EmployeeId);
+  if Assigned(Emp) then
+  begin
+    try
+      // Header
+      LblHospitalName.Text := TDBHelper.GetSettingValue('institution_name_fr');
+      if LblHospitalName.Text = '' then 
+        LblHospitalName.Text := 'HOPITAL CENTRAL DE REFERENCE';
+        
+      LblDateParams.Text := 'Période : ' + FormatDateTime('mmmm yyyy', EncodeDate(ASalaryRecord.Year, ASalaryRecord.Month, 1));
+      
+      // Employee
+      LblEmpNameInfo.Text := 'Nom & Prénom : ' + Emp.FullName;
+      LblEmpMatricule.Text := 'Matricule : ' + Emp.EmployeeNumber;
+      LblEmpFunction.Text := 'Fonction : ' + Emp.PositionFr;
+      LblEmpSS.Text := 'N° Sécurité Sociale : ' + Emp.NationalId;
+      
+      // Grid Clear
+      GridPay.RowCount := 0;
+      RowIdx := 0;
+      
+      // Base
+      AddRow('101', 'Salaire de Base', FormatFloat('0.00', ASalaryRecord.BaseSalary), '30', FormatFloat('0.00', ASalaryRecord.BaseSalary), '');
+      
+      // Earnings (Allowances)
+      if ASalaryRecord.InfectionAllowance > 0 then
+        AddRow('202', 'Indemnité de Contagion', '', '', FormatFloat('0.00', ASalaryRecord.InfectionAllowance), '');
+      if ASalaryRecord.DocumentationAllowance > 0 then
+        AddRow('302', 'Indemnité de Documentation', '', '', FormatFloat('0.00', ASalaryRecord.DocumentationAllowance), '');
+      if ASalaryRecord.QualificationAllowance > 0 then
+        AddRow('702', 'Indemnité de Qualification', '', '', FormatFloat('0.00', ASalaryRecord.QualificationAllowance), '');
+      if ASalaryRecord.SupervisionAllowance > 0 then
+        AddRow('802', 'Indemnité d''Encadrement', '', '', FormatFloat('0.00', ASalaryRecord.SupervisionAllowance), '');
+      if ASalaryRecord.HealthActivitySupport > 0 then
+        AddRow('212', 'Soutien Activités de Santé', '', '', FormatFloat('0.00', ASalaryRecord.HealthActivitySupport), '');
+      if ASalaryRecord.FlatRateBonus > 0 then
+        AddRow('390', 'Prime Forfaitaire', '', '', FormatFloat('0.00', ASalaryRecord.FlatRateBonus), '');
+        
+      // Deductions
+      AddRow('801', 'Retenue S.S (Sécurité Sociale)', FormatFloat('0.00', ASalaryRecord.GrossSalary), '9%', '', FormatFloat('0.00', ASalaryRecord.SocialSecurity));
+      AddRow('802', 'Retenue I.R.G', FormatFloat('0.00', ASalaryRecord.TaxableIncome), '', '', FormatFloat('0.00', ASalaryRecord.IrgTax));
+      
+      if ASalaryRecord.AbsenceDeduction > 0 then
+        AddRow('805', 'Retenue Absences', '', IntToStr(ASalaryRecord.AbsentDays) + ' J', '', FormatFloat('0.00', ASalaryRecord.AbsenceDeduction));
+        
+      // Totals
+      AddRow('', 'TOTAUX GENERAUX', '', '', FormatFloat('0.00', ASalaryRecord.GrossSalary), FormatFloat('0.00', ASalaryRecord.SocialSecurity + ASalaryRecord.IrgTax + ASalaryRecord.AbsenceDeduction));
+      
+      // Footer
+      LblNetValue.Text := FormatFloat('#,##0.00', ASalaryRecord.NetPay) + ' DZD';
+      // In a real app we'd convert numbers to french words.
+      LblNetWords.Text := 'Arrêté le présent bulletin à la somme de : ' + FormatFloat('0.00', ASalaryRecord.NetPay) + ' DA.';
+      
+    finally
+      Emp.Free;
+    end;
+  end;
 end;
 
 end.

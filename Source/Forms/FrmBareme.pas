@@ -1,4 +1,4 @@
-﻿unit FrmBareme;
+unit FrmBareme;
 
 interface
 
@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.Objects, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, FMX.Grid,
-  FMX.Grid.Style, FMX.TabControl, FMX.Effects, System.Rtti, FMX.ScrollBox;
+  FMX.Grid.Style, FMX.TabControl, FMX.Effects, System.Rtti, FMX.ScrollBox,
+  FireDAC.Comp.Client, DB_Helper;
 
 type
   TBaremeFrame = class(TFrame)
@@ -62,7 +63,7 @@ type
     constructor Create(AOwner: TComponent); override;
   private
     procedure SetupTexts;
-    procedure PopulateDummyData;
+    procedure LoadData;
   end;
 
 var
@@ -76,7 +77,7 @@ constructor TBaremeFrame.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
   SetupTexts;
-  PopulateDummyData;
+  LoadData;
 end;
 
 procedure TBaremeFrame.SetupTexts;
@@ -112,31 +113,69 @@ begin
   ColRubImposable.Header := 'Soumis IRG';
 end;
 
-procedure TBaremeFrame.PopulateDummyData;
+procedure TBaremeFrame.LoadData;
+var
+  Q: TFDQuery;
+  RowIdx: Integer;
 begin
-  // Dummy Classes
-  GridClasses.RowCount := 4;
-  GridClasses.Cells[0, 0] := 'Classe 10'; GridClasses.Cells[1, 0] := 'Personnel Administratif'; GridClasses.Cells[2, 0] := '348';
-  GridClasses.Cells[0, 1] := 'Classe 11'; GridClasses.Cells[1, 1] := 'Paramédical Diplômé d''Etat'; GridClasses.Cells[2, 1] := '398';
-  GridClasses.Cells[0, 2] := 'Classe 12'; GridClasses.Cells[1, 2] := 'Cadre Administratif'; GridClasses.Cells[2, 2] := '453';
-  GridClasses.Cells[0, 3] := 'Classe 16'; GridClasses.Cells[1, 3] := 'Médecin Spécialiste'; GridClasses.Cells[2, 3] := '714';
-  
-  // Dummy IRG (Algerian Bareme IRG Example)
-  GridIRG.RowCount := 4;
-  GridIRG.Cells[0, 0] := 'Tranche 1'; GridIRG.Cells[1, 0] := '0.00'; GridIRG.Cells[2, 0] := '30 000.00'; GridIRG.Cells[3, 0] := '0 %'; GridIRG.Cells[4, 0] := 'Exonéré';
-  GridIRG.Cells[0, 1] := 'Tranche 2'; GridIRG.Cells[1, 1] := '30 001.00'; GridIRG.Cells[2, 1] := '35 000.00'; GridIRG.Cells[3, 1] := '20 %'; GridIRG.Cells[4, 0] := 'Abattement progressif';
-  GridIRG.Cells[0, 2] := 'Tranche 3'; GridIRG.Cells[1, 2] := '35 001.00'; GridIRG.Cells[2, 2] := '120 000.00'; GridIRG.Cells[3, 2] := '30 %'; GridIRG.Cells[4, 0] := 'Abattement fixe';
-  GridIRG.Cells[0, 3] := 'Tranche 4'; GridIRG.Cells[1, 3] := '120 001.00'; GridIRG.Cells[2, 3] := 'Et plus'; GridIRG.Cells[3, 3] := '35 %'; GridIRG.Cells[4, 0] := 'Aucun';
-  
-  // Dummy Rubriques
-  GridRubriques.RowCount := 4;
-  GridRubriques.Cells[0, 0] := '101'; GridRubriques.Cells[1, 0] := 'Salaire de Base'; GridRubriques.Cells[2, 0] := 'Gain'; GridRubriques.Cells[3, 0] := '-';
-  // Note: For checkboxes in TCheckColumn, we'd typically manage values via OnGetValue or bind it, 
-  // but for FMX stringgrid cells we leave it empty for dummy representation in UI step.
-  
-  GridRubriques.Cells[0, 1] := '102'; GridRubriques.Cells[1, 1] := 'Indemnité Expérience Prof. (IEP)'; GridRubriques.Cells[2, 1] := 'Gain'; GridRubriques.Cells[3, 1] := '5%';
-  GridRubriques.Cells[0, 2] := '801'; GridRubriques.Cells[1, 2] := 'Retenue S.S'; GridRubriques.Cells[2, 2] := 'Retenue'; GridRubriques.Cells[3, 2] := '9%';
-  GridRubriques.Cells[0, 3] := '802'; GridRubriques.Cells[1, 3] := 'Retenue I.R.G'; GridRubriques.Cells[2, 3] := 'Retenue'; GridRubriques.Cells[3, 3] := 'Barème';
+  Q := TFDQuery.Create(nil);
+  try
+    Q.Connection := TDBHelper.GetConnection;
+    
+    // 1. Bareme (Classes Overview)
+    Q.SQL.Text := 'SELECT class, MIN(index_number) as min_idx FROM bareme GROUP BY class ORDER BY class';
+    Q.Open;
+    GridClasses.RowCount := 0;
+    RowIdx := 0;
+    while not Q.Eof do
+    begin
+      GridClasses.RowCount := GridClasses.RowCount + 1;
+      GridClasses.Cells[0, RowIdx] := 'Classe ' + Q.FieldByName('class').AsString;
+      GridClasses.Cells[1, RowIdx] := 'Echelon 0';
+      GridClasses.Cells[2, RowIdx] := Q.FieldByName('min_idx').AsString;
+      Inc(RowIdx);
+      Q.Next;
+    end;
+    Q.Close;
+    
+    // 2. IRG
+    Q.SQL.Text := 'SELECT * FROM irg_table ORDER BY income_from';
+    Q.Open;
+    GridIRG.RowCount := 0;
+    RowIdx := 0;
+    while not Q.Eof do
+    begin
+      GridIRG.RowCount := GridIRG.RowCount + 1;
+      GridIRG.Cells[0, RowIdx] := 'Tranche ' + IntToStr(RowIdx + 1);
+      GridIRG.Cells[1, RowIdx] := FormatFloat('0.00', Q.FieldByName('income_from').AsFloat);
+      GridIRG.Cells[2, RowIdx] := FormatFloat('0.00', Q.FieldByName('income_to').AsFloat);
+      GridIRG.Cells[3, RowIdx] := '-';
+      GridIRG.Cells[4, RowIdx] := FormatFloat('0.00', Q.FieldByName('tax_amount').AsFloat);
+      Inc(RowIdx);
+      Q.Next;
+    end;
+    Q.Close;
+    
+    // 3. Rubriques (Allowances)
+    Q.SQL.Text := 'SELECT * FROM allowance_types ORDER BY code';
+    Q.Open;
+    GridRubriques.RowCount := 0;
+    RowIdx := 0;
+    while not Q.Eof do
+    begin
+      GridRubriques.RowCount := GridRubriques.RowCount + 1;
+      GridRubriques.Cells[0, RowIdx] := Q.FieldByName('code').AsString;
+      GridRubriques.Cells[1, RowIdx] := Q.FieldByName('name_fr').AsString;
+      GridRubriques.Cells[2, RowIdx] := 'Rubrique';
+      GridRubriques.Cells[3, RowIdx] := '-';
+      Inc(RowIdx);
+      Q.Next;
+    end;
+    Q.Close;
+    
+  finally
+    Q.Free;
+  end;
 end;
 
 end.

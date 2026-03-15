@@ -157,6 +157,11 @@ begin
     Rec.Save; // Auto inserts or updates
     FCalculatedRecords.Add(Rec);
   end;
+  
+  if (FCalculatedRecords.Count > 0) and Assigned(PaySlipFrame) then
+  begin
+    PaySlipFrame.LoadRecord(FCalculatedRecords[0]);
+  end;
 end;
 
 procedure TSalaryCalcFrame.BtnBackToStep1Click(Sender: TObject);

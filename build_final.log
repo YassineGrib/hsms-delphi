@@ -1,0 +1,133 @@
+Embarcadero Delphi for Win32 compiler version 35.0
+Copyright (c) 1983,2022 Embarcadero Technologies, Inc.
+Source\Utils\DB_Helper.pas(55) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Utils\DB_Helper.pas(57) Hint: H2443 Inline function 'TDataSet.IsEmpty' has not been expanded because unit 'Data.DB' is not specified in USES list
+Source\Utils\DB_Helper.pas(74) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Utils\DB_Helper.pas(75) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Utils\DB_Helper.pas(76) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Utils\DB_Helper.pas(112) Hint: H2443 Inline function 'TDataSet.IsEmpty' has not been expanded because unit 'Data.DB' is not specified in USES list
+Source\Utils\DB_Helper.pas(129) Hint: H2443 Inline function 'TDataSet.IsEmpty' has not been expanded because unit 'Data.DB' is not specified in USES list
+Source\Models\Model_Employee.pas(111) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(147) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(218) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(222) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(223) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(224) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(225) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(226) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(227) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(228) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(229) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(230) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(231) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(232) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(233) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(236) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(238) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Employee.pas(189) Hint: H2077 Value assigned to 'TEmployee.Save' never used
+Source\Models\Model_Employee.pas(268) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Forms\FrmDashboard.pas(104) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Forms\FrmDashboard.pas(107) Hint: H2443 Inline function 'TDataSet.IsEmpty' has not been expanded because unit 'Data.DB' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(172) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(173) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(174) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(175) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(176) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(178) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(179) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(180) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(181) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(182) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(183) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(184) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(185) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(186) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(188) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(189) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(190) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(191) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(192) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(193) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(196) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(198) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(220) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(221) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(222) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(246) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_SalaryRecord.pas(247) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Allowance.pas(106) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Allowance.pas(140) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Allowance.pas(141) Hint: H2443 Inline function 'TFDParam.SetAsString' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Allowance.pas(142) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Models\Model_Allowance.pas(160) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Engine\Engine_Bareme.pas(42) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Engine\Engine_Bareme.pas(43) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Engine\Engine_Bareme.pas(44) Hint: H2443 Inline function 'TFDParam.SetAsInteger' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Engine\Engine_IRG.pas(34) Hint: H2443 Inline function 'TFDParam.SetAsFloat' has not been expanded because unit 'FireDAC.Stan.Param' is not specified in USES list
+Source\Forms\FrmBareme.pas(13) Error: E2003 Undeclared identifier: 'TRectangle'
+Source\Forms\FrmBareme.pas(17) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(19) Error: E2003 Undeclared identifier: 'TLabel'
+Source\Forms\FrmBareme.pas(20) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(31) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(32) Error: E2003 Undeclared identifier: 'TButton'
+Source\Forms\FrmBareme.pas(34) Error: E2003 Undeclared identifier: 'TStringGrid'
+Source\Forms\FrmBareme.pas(34) Error: E2217 Published field 'GridClasses' not a class or interface type
+Source\Forms\FrmBareme.pas(35) Error: E2003 Undeclared identifier: 'TStringColumn'
+Source\Forms\FrmBareme.pas(35) Error: E2217 Published field 'ColClasse' not a class or interface type
+Source\Forms\FrmBareme.pas(36) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(36) Error: E2217 Published field 'ColDesignation' not a class or interface type
+Source\Forms\FrmBareme.pas(37) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(37) Error: E2217 Published field 'ColIndiceMin' not a class or interface type
+Source\Forms\FrmBareme.pas(41) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(41) Error: E2217 Published field 'GridIRG' not a class or interface type
+Source\Forms\FrmBareme.pas(42) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(42) Error: E2217 Published field 'ColTrancheIRG' not a class or interface type
+Source\Forms\FrmBareme.pas(43) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(43) Error: E2217 Published field 'ColMinIRG' not a class or interface type
+Source\Forms\FrmBareme.pas(44) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(44) Error: E2217 Published field 'ColMaxIRG' not a class or interface type
+Source\Forms\FrmBareme.pas(45) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(45) Error: E2217 Published field 'ColTauxIRG' not a class or interface type
+Source\Forms\FrmBareme.pas(46) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(46) Error: E2217 Published field 'ColAbattementIRG' not a class or interface type
+Source\Forms\FrmBareme.pas(51) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(53) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(53) Error: E2217 Published field 'GridRubriques' not a class or interface type
+Source\Forms\FrmBareme.pas(54) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(54) Error: E2217 Published field 'ColRubCode' not a class or interface type
+Source\Forms\FrmBareme.pas(55) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(55) Error: E2217 Published field 'ColRubLibelle' not a class or interface type
+Source\Forms\FrmBareme.pas(56) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(56) Error: E2217 Published field 'ColRubType' not a class or interface type
+Source\Forms\FrmBareme.pas(57) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(57) Error: E2217 Published field 'ColRubTaux' not a class or interface type
+Source\Forms\FrmBareme.pas(58) Error: E2003 Undeclared identifier: 'TCheckColumn'
+Source\Forms\FrmBareme.pas(58) Error: E2217 Published field 'ColRubCotisable' not a class or interface type
+Source\Forms\FrmBareme.pas(59) Error: E2007 Constant or type identifier expected
+Source\Forms\FrmBareme.pas(59) Error: E2217 Published field 'ColRubImposable' not a class or interface type
+Source\Forms\FrmBareme.pas(84) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(127) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(131) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(131) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(131) Error: E2014 Statement expected, but expression of type 'Integer' found
+Source\Forms\FrmBareme.pas(132) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(133) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(134) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(143) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(147) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(147) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(147) Error: E2014 Statement expected, but expression of type 'Integer' found
+Source\Forms\FrmBareme.pas(148) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(149) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(150) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(151) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(152) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(161) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(165) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(165) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(165) Error: E2014 Statement expected, but expression of type 'Integer' found
+Source\Forms\FrmBareme.pas(166) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(167) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(168) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmBareme.pas(169) Error: E2066 Missing operator or semicolon
+Source\Forms\FrmMain.pas(51) Fatal: F2063 Could not compile used unit 'FrmBareme.pas'
